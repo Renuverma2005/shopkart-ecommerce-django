@@ -50,29 +50,28 @@ ALLOWED_HOSTS = [
 "localhost",
 "127.0.0.1",
 ]
-
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 
 if RENDER_EXTERNAL_HOSTNAME:
- ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # =====================================================
-
 # CSRF TRUSTED ORIGINS
-
 # =====================================================
 
 CSRF_TRUSTED_ORIGINS = [
-"https://shopkart-ecommerce-django-1.onrender.com",
+    "https://shopkart-ecommerce-django.onrender.com",
 ]
 
 if RENDER_EXTERNAL_HOSTNAME:
- render_origin = f"https://{RENDER_EXTERNAL_HOSTNAME}"
+    render_origin = f"https://{RENDER_EXTERNAL_HOSTNAME}"
 
+    if render_origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(render_origin)
 
-if render_origin not in CSRF_TRUSTED_ORIGINS:
-    CSRF_TRUSTED_ORIGINS.append(render_origin)
-
+# =====================================================
+# APPLICATION DEFINITION
+# =====================================================
 
 # =====================================================
 
@@ -217,14 +216,17 @@ USE_TZ = True
 # STATIC FILES
 
 # =====================================================
-
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "media",
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 STORAGES = {
     "default": {
@@ -234,12 +236,11 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-
 # MEDIA FILES
 
 # =====================================================
 
-MEDIA_URL = "/media/"
+
 
 MEDIA_ROOT = BASE_DIR / "media"
 
