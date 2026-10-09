@@ -1,0 +1,1862 @@
+[
+{
+  "model": "appaccount.category",
+  "pk": 1,
+  "fields": {
+    "name": "Shoes 👟",
+    "image": "categories/shoes.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 2,
+  "fields": {
+    "name": "Camera",
+    "image": "categories/camra.jpg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 3,
+  "fields": {
+    "name": "Luxury Rose Perfume",
+    "image": "categories/parfum.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 4,
+  "fields": {
+    "name": "Accessories",
+    "image": "categories/googles.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 5,
+  "fields": {
+    "name": "Electronics",
+    "image": "categories/headphone.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 6,
+  "fields": {
+    "name": "Electronics",
+    "image": "categories/watch.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 7,
+  "fields": {
+    "name": "Water Bottle",
+    "image": "categories/botal.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 8,
+  "fields": {
+    "name": "Beauty & Makeup",
+    "image": "categories/beauti_rpduct1_xd6BbCJ.jpg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 9,
+  "fields": {
+    "name": "Accessories",
+    "image": "categories/chain.avif"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 10,
+  "fields": {
+    "name": "Face Makeup",
+    "image": "categories/beauti_rpduct1.jpg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 11,
+  "fields": {
+    "name": "Shoes",
+    "image": "categories/shoes_white.webp"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 12,
+  "fields": {
+    "name": "shimmering beautiful necklace combo for woamn and girls",
+    "image": "categories/galekaimg1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 13,
+  "fields": {
+    "name": "fashion",
+    "image": "categories/korean_top1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 14,
+  "fields": {
+    "name": "makeup",
+    "image": "categories/maukeup1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 15,
+  "fields": {
+    "name": "makeup",
+    "image": "categories/makeup2.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 16,
+  "fields": {
+    "name": "makeup combo",
+    "image": "categories/makup3.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 18,
+  "fields": {
+    "name": "Face Makeup Combo",
+    "image": "categories/makeup4.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 19,
+  "fields": {
+    "name": "Beauty & Makeup",
+    "image": "categories/makeup5.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 20,
+  "fields": {
+    "name": "Beauty & Makeup",
+    "image": "categories/makeup6.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 21,
+  "fields": {
+    "name": "Beauty & Makeup",
+    "image": "categories/makeup7.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 22,
+  "fields": {
+    "name": "Coffee & Tea makers",
+    "image": "categories/electric1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 23,
+  "fields": {
+    "name": "Electronics",
+    "image": "categories/electric1_9n2EkJ1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 25,
+  "fields": {
+    "name": "Electronics",
+    "image": "categories/eletriv2.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 26,
+  "fields": {
+    "name": "Electronics",
+    "image": "categories/elec_3.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 27,
+  "fields": {
+    "name": "watches",
+    "image": "categories/watch1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 28,
+  "fields": {
+    "name": "watches",
+    "image": "categories/watch2.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 29,
+  "fields": {
+    "name": "kashmiri  watch",
+    "image": "categories/watch7.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 30,
+  "fields": {
+    "name": "watches",
+    "image": "categories/watch8.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 31,
+  "fields": {
+    "name": "Shoes",
+    "image": "categories/woman_shoes1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 32,
+  "fields": {
+    "name": "Shoes 👟",
+    "image": "categories/manshoes1.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 33,
+  "fields": {
+    "name": "Shoes",
+    "image": "categories/manshoes1_NIkngrY.jpeg"
+  }
+},
+{
+  "model": "appaccount.category",
+  "pk": 34,
+  "fields": {
+    "name": "Abrexo watch",
+    "image": "categories/watch10.jpeg"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 1,
+  "fields": {
+    "name": "Premium Running Shoes",
+    "category": 1,
+    "subcategory": null,
+    "image": "products/shoes.avif",
+    "price": "1999.00",
+    "old_price": "2499.00",
+    "short_description": "Lightweight and comfortable running shoes for everyday use.",
+    "description": "Premium running shoes designed with a comfortable sole and stylish look. Perfect for running, walking and daily wear.",
+    "color": "Red",
+    "size": "6, 7, 8, 9, 10",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-09-11T04:19:50.643Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 2,
+  "fields": {
+    "name": "Canon EOS R50 Camera",
+    "category": 2,
+    "subcategory": null,
+    "image": "products/camra.jpg",
+    "price": "59999.00",
+    "old_price": "69999.00",
+    "short_description": "Compact mirrorless camera with excellent image quality.",
+    "description": "Stylish and lightweight camera suitable for photography, travel and content creation.",
+    "color": "Black",
+    "size": "Free Size",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-11T04:28:03.183Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 3,
+  "fields": {
+    "name": "Luxury Rose Perfume",
+    "category": 3,
+    "subcategory": null,
+    "image": "products/parfum.avif",
+    "price": "200.00",
+    "old_price": "230.00",
+    "short_description": "Long-lasting floral fragrance for everyday use.",
+    "description": "Elegant rose fragrance with a refreshing and long-lasting aroma, perfect for daily wear and special occasions.",
+    "color": "",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-11T04:39:19.204Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 4,
+  "fields": {
+    "name": "Classic Black Eyeglasses",
+    "category": 4,
+    "subcategory": null,
+    "image": "products/googles.avif",
+    "price": "100.00",
+    "old_price": "199.00",
+    "short_description": "Stylish sunglasses with UV protection.",
+    "description": "Premium stylish black sunglasses with UV protection. Lightweight and comfortable for everyday use.",
+    "color": "Black",
+    "size": "Free Size",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-11T04:46:58.590Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 5,
+  "fields": {
+    "name": "Wireless Bluetooth Headphones",
+    "category": 5,
+    "subcategory": null,
+    "image": "products/headphone.avif",
+    "price": "1999.00",
+    "old_price": "2999.00",
+    "short_description": "Premium wireless headphones with clear sound, deep bass and long battery life.",
+    "description": "Premium wireless Bluetooth headphones with clear sound, comfortable ear cushions, long battery life and stylish design.",
+    "color": "Black",
+    "size": "Free Size",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-12T03:07:33.744Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 6,
+  "fields": {
+    "name": "Smart Fitness Watch",
+    "category": 6,
+    "subcategory": null,
+    "image": "products/watch.avif",
+    "price": "2499.00",
+    "old_price": "3000.00",
+    "short_description": "Stylish smart watch with fitness tracking, heart-rate monitoring and long battery life.",
+    "description": "Stay connected and active with this stylish Smart Watch featuring a clear display, fitness tracking, notification alerts, and a comfortable design. Perfect for daily use, workouts, travel, and a modern lifestyle.",
+    "color": "Black",
+    "size": "Free Size",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-12T03:12:22.078Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 7,
+  "fields": {
+    "name": "Premium Stainless Steel Water Bottle",
+    "category": 7,
+    "subcategory": null,
+    "image": "products/botal.avif",
+    "price": "2000.00",
+    "old_price": "3000.00",
+    "short_description": "Stay hydrated with this stylish and durable water bottle. Its lightweight design makes it easy to carry and perfect for home, office, gym, travel, and everyday use.",
+    "description": "Stay hydrated with this stylish and durable Water Bottle, designed for everyday use. Its lightweight and convenient design makes it easy to carry to the office, gym, school, travel, or outdoor activities. Perfect for keeping your favorite drinks with you throughout the day.",
+    "color": "slate Blue",
+    "size": "Free Size",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-12T03:19:05.901Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 8,
+  "fields": {
+    "name": "Red Matte Lipstick",
+    "category": 8,
+    "subcategory": null,
+    "image": "products/lipstics.avif",
+    "price": "100.00",
+    "old_price": "200.00",
+    "short_description": "Smooth and long-lasting red lipstick with a beautiful matte finish, perfect for everyday and party looks.",
+    "description": "A beautiful red matte lipstick with a smooth texture and long-lasting finish. It gives your lips a rich, elegant color and is perfect for both everyday and special occasions. Easy to apply and comfortable to wear.",
+    "color": "Red",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-12T03:21:30.375Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 9,
+  "fields": {
+    "name": "Elegant Pearl Necklace",
+    "category": 4,
+    "subcategory": null,
+    "image": "products/chain.avif",
+    "price": "100.00",
+    "old_price": "200.00",
+    "short_description": "Elegant pearl necklace with a stylish design, perfect for parties and special occasions.",
+    "description": "Elegant and stylish pearl necklace featuring a beautiful design and premium finish. Perfect for parties, weddings, festive occasions, and everyday fashion. It adds a graceful and sophisticated touch to any outfit.",
+    "color": "",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-09-12T03:49:41.585Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 10,
+  "fields": {
+    "name": "neckleace combo",
+    "category": 12,
+    "subcategory": null,
+    "image": "products/galekaimg1.jpeg",
+    "price": "80.00",
+    "old_price": "200.00",
+    "short_description": "base metal stone type brasss",
+    "description": "this is beatutiful neackleace",
+    "color": "gold plated",
+    "size": "Free Size",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-09-19T05:26:43.553Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 11,
+  "fields": {
+    "name": "Highhlighter",
+    "category": 14,
+    "subcategory": null,
+    "image": "products/maukeup1.jpeg",
+    "price": "151.00",
+    "old_price": "200.00",
+    "short_description": "strobe Face Highlighter Pack fo 2 Buy 1 Get 1 free (pink+Gold",
+    "description": "This high-quality makeup product provides a smooth finish and comfortable feel throughout the day. Its long-lasting formula is perfect for everyday makeup, parties, weddings and special occasions",
+    "color": "pink gold",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-05T07:11:32.809Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 12,
+  "fields": {
+    "name": "mini makeup kit",
+    "category": 15,
+    "subcategory": null,
+    "image": "products/makeup2.jpeg",
+    "price": "181.00",
+    "old_price": "219.00",
+    "short_description": "Compact makeup kit with essential beauty products for everyday use.",
+    "description": "A stylish mini makeup kit designed for everyday touch-ups and easy travel.",
+    "color": "multi Color",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-05T07:34:36.754Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 13,
+  "fields": {
+    "name": "Multi makeup kit",
+    "category": 16,
+    "subcategory": null,
+    "image": "products/makup3_f2teRTX.jpeg",
+    "price": "306.00",
+    "old_price": "343.00",
+    "short_description": "Complete makeup essentials for a beautiful everyday look.",
+    "description": "The products are easy to use, travel-friendly, and suitable for creating a beautiful and fresh makeup look. A perfect choice for beginners as well as makeup lovers.",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-05T07:46:14.903Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 14,
+  "fields": {
+    "name": "makeup product",
+    "category": 18,
+    "subcategory": null,
+    "image": "products/makeup4.jpeg",
+    "price": "162.00",
+    "old_price": "194.00",
+    "short_description": "7 in 1 Makeup Combo Kit for woman primer,BB Foundation, makeup prodcut",
+    "description": "Get a complete makeup look with our **7-in-1 Makeup Combo Kit for Women**, featuring Primer, BB Cream, Foundation, Compact Powder, Lipstick, Mascara and Blush. Perfect for daily use, parties, weddings and special occasions. Easy to use, travel-friendly and ideal for makeup beginners and beauty lovers.",
+    "color": "multi Color",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-06T03:37:15.364Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 15,
+  "fields": {
+    "name": "LIPSTICK",
+    "category": 14,
+    "subcategory": 2,
+    "image": "products/makeup5.jpeg",
+    "price": "80.00",
+    "old_price": "107.00",
+    "short_description": "Beautiful multi-color lipstick collection with rich pigmentation, smooth texture and long-lasting finish.",
+    "description": "Explore a beautiful range of vibrant and elegant lipstick shades in one collection. These lipsticks offer rich pigmentation, smooth application and a comfortable long-lasting finish. Perfect for everyday makeup, parties and special occasions.",
+    "color": "multi Color",
+    "size": "Free Size",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-06T04:38:23.498Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 16,
+  "fields": {
+    "name": "Eyebrow pencil",
+    "category": 14,
+    "subcategory": 3,
+    "image": "products/makeup6.jpeg",
+    "price": "106.00",
+    "old_price": "126.00",
+    "short_description": "Eye Brow pen combo for  woman waterproof long natural",
+    "description": "Waterproof Eyebrow Pen Combo for women with a precise micro-tip that creates natural, hair-like brow strokes. Smudge-proof, long-lasting and sweat-resistant formula gives fuller, well-defined brows with a soft natural finish. Perfect for daily makeup, parties and long-lasting wear.",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-06T05:07:21.890Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 17,
+  "fields": {
+    "name": "Eyeliner",
+    "category": 14,
+    "subcategory": 1,
+    "image": "products/makeup7.jpeg",
+    "price": "120.00",
+    "old_price": "136.00",
+    "short_description": "Intense black, long-lasting eyeliner with a smooth professional finish. Perfect for precise lines, bold looks, and all-day eye makeup",
+    "description": "Perfect for creating thin precision lines, bold dramatic wings, classic eyeliner looks, and creative eye makeup styles. The smooth application makes it easy to control the thickness and shape of your liner, making it a great addition to both professional makeup kits and everyday beauty collections.",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-06T05:12:49.134Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 18,
+  "fields": {
+    "name": "face pack",
+    "category": 14,
+    "subcategory": 4,
+    "image": "products/makeup8.jpeg",
+    "price": "80.00",
+    "old_price": "120.00",
+    "short_description": "100% natural Multani Mitti powder with rose water for a refreshing and soothing face pack. Perfect for a fresh, clean and naturally glowing look.",
+    "description": "Give your skin a refreshing beauty treatment with our 100% Natural Multani Mitti Powder (200g) with Rose Water (120g). This easy-to-use face pack combination is perfect for creating a traditional skincare routine at home.",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-06T05:22:30.573Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 19,
+  "fields": {
+    "name": "Coffee & Tea makers",
+    "category": 6,
+    "subcategory": 5,
+    "image": "products/electric1.jpeg",
+    "price": "170.00",
+    "old_price": "200.00",
+    "short_description": "Rechargeable 3-speed electric milk frother with a powerful handheld design, perfect for making creamy coffee, frothy milk, shakes and beverages quickly and easily.",
+    "description": "This Rechargeable Electric Milk Frother is a convenient and easy-to-use kitchen appliance designed to create smooth, creamy and rich froth in seconds. Its 3-speed settings allow you to choose the right speed according to your beverage and mixing needs.",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-06T06:26:28.633Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 20,
+  "fields": {
+    "name": "Hair Dryers",
+    "category": 25,
+    "subcategory": 6,
+    "image": "products/eletriv2.jpeg",
+    "price": "321.00",
+    "old_price": "367.00",
+    "short_description": "Nirvani 2888 Hair Dryer with hot and cold air settings, designed for quick and comfortable hair drying and styling.",
+    "description": "Nirvani 2888 Hair Dryer is a convenient styling tool designed for everyday hair care. It features hot and cold air options to provide flexible drying and styling according to your needs. The dryer helps dry wet hair",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-06T07:54:55.719Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 21,
+  "fields": {
+    "name": "Nail Dryers",
+    "category": 23,
+    "subcategory": 6,
+    "image": "products/elec_3.jpeg",
+    "price": "500.00",
+    "old_price": "560.00",
+    "short_description": "3-in-1 hair styling combo with hair dryer, straightener, and curler for quick drying, smooth straight styles, and beautiful curls.",
+    "description": "Upgrade your everyday hair styling with this 3-in-1 Hair Styling Combo, featuring a hair dryer, hair straightener, and hair curler. The hair dryer helps quickly dry wet hair, while the straightener is designed to",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-06T08:01:24.381Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 22,
+  "fields": {
+    "name": "Analog Watches",
+    "category": 27,
+    "subcategory": 8,
+    "image": "products/watch1.jpeg",
+    "price": "144.00",
+    "old_price": "200.00",
+    "short_description": "Elegant square rose-gold women’s wrist watch featuring a stylish rose dial and modern design. Perfect for everyday wear, office outfits, parties, and special occasions.",
+    "description": "Add a touch of elegance to your everyday style with the Aks Rose Dial DB Square Rose Women Wrist Watch. Designed with a sophisticated square dial and beautiful rose-gold finish, this watch offers a fashionable and graceful look for modern women.",
+    "color": "multi Color",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T03:51:24.945Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 23,
+  "fields": {
+    "name": "New Solid Designer metal",
+    "category": 27,
+    "subcategory": 8,
+    "image": "products/watch2.jpeg",
+    "price": "140.00",
+    "old_price": "170.00",
+    "short_description": "Stylish solid designer metal analog watch for women with a premium look, elegant round dial and comfortable metal strap. Perfect for daily wear, office, casual outings and parties.",
+    "description": "Make a stylish statement with this New Solid Designer Metal Analog Watch for Women. Designed with a beautiful solid dial and elegant metal strap, this watch gives your outfit a classy and fashionable touch.",
+    "color": "Brown",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T05:10:28.178Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 24,
+  "fields": {
+    "name": "Digital Watches",
+    "category": 28,
+    "subcategory": 8,
+    "image": "products/watch3.jpeg",
+    "price": "200.00",
+    "old_price": "230.00",
+    "short_description": "Trendy square digital watch for girls in classic black color, featuring a stylish modern design",
+    "description": "Trendy square digital watch for girls in classic black color, featuring a stylish modern design, clear digital display and comfortable strap. Perfect for daily wear, college, casual outings and parties.",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T05:15:59.052Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 25,
+  "fields": {
+    "name": "Analog Watches",
+    "category": 28,
+    "subcategory": 10,
+    "image": "products/watchs4.jpeg",
+    "price": "500.00",
+    "old_price": "1000.00",
+    "short_description": "Lucifer Premium Analog Watch for Men with a stylish green dial and durable stainless steel strap. Elegant, modern and perfect for office, casual wear and special occasions.",
+    "description": "The Lucifer Premium Analog Watch for Men combines a sophisticated design with a bold green dial and premium stainless steel strap. Its elegant analog display gives a classic and stylish appearance, while the",
+    "color": "Green",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-08T05:42:06.324Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 26,
+  "fields": {
+    "name": "Premium men Watch",
+    "category": 28,
+    "subcategory": 11,
+    "image": "products/watchs5.jpeg",
+    "price": "2000.00",
+    "old_price": "3000.00",
+    "short_description": "premium men watches",
+    "description": "premium men watches desing unqiue color",
+    "color": "",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-08T05:45:51.154Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 27,
+  "fields": {
+    "name": "Analog Watches",
+    "category": 28,
+    "subcategory": 8,
+    "image": "products/watch6.jpeg",
+    "price": "276.00",
+    "old_price": "314.00",
+    "short_description": "Exclusive premium two-tone analog watch with a silver-plated dial, elegant gold and silver chain strap, and useful date function. Stylish and perfect for formal and everyday wear.",
+    "description": "The Exclusive Premium Silver-Plated Dial Gold Two-Tone Chain Watch brings together classic elegance and modern luxury. It features a sophisticated silver-plated dial paired with a stylish two-tone gold and silver",
+    "color": "Sliver Plated Dial Gold",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-08T05:54:02.421Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 28,
+  "fields": {
+    "name": "watches",
+    "category": 28,
+    "subcategory": 13,
+    "image": "products/watch7.jpeg",
+    "price": "200.00",
+    "old_price": "300.00",
+    "short_description": "",
+    "description": "unique premium watch kashmiri",
+    "color": "gold",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T06:01:48.427Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 29,
+  "fields": {
+    "name": "stainless steel",
+    "category": 27,
+    "subcategory": 14,
+    "image": "products/watch8.jpeg",
+    "price": "120.00",
+    "old_price": "150.00",
+    "short_description": "Ladies Pink Dial Watch with Gold-Tone Case & Heart Motif Link Strap",
+    "description": "Elegant ladies analog watch featuring a beautiful pink dial, premium gold-tone case and stylish heart-motif link bracelet. A feminine and fashionable accessory for everyday wear, office, parties and special occasions.",
+    "color": "pink sliver",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T06:36:34.336Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 30,
+  "fields": {
+    "name": "woman styling boot",
+    "category": 1,
+    "subcategory": 15,
+    "image": "products/caursalboot1.jpeg",
+    "price": "1220.00",
+    "old_price": "1000.00",
+    "short_description": "woman shoes in boot",
+    "description": "woman style boot",
+    "color": "Black",
+    "size": "6, 7, 8, 9, 10",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T07:28:48.296Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 31,
+  "fields": {
+    "name": "Premium Trending Casual  Shoes",
+    "category": 11,
+    "subcategory": 17,
+    "image": "products/manshoes1.jpeg",
+    "price": "300.00",
+    "old_price": "500.00",
+    "short_description": "Stylish premium casual sports shoes with a trendy design, lightweight feel, comfortable fit, and durable sole for daily wear, walking, and casual outings.",
+    "description": "Upgrade your everyday footwear collection with these Premium Trending Casual Sports Shoes. Designed with a modern and stylish look, these shoes are perfect for daily wear, walking, casual outings, college,",
+    "color": "Black",
+    "size": "6, 7, 8, 9, 10",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-08T07:34:38.840Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 32,
+  "fields": {
+    "name": "Black Stylish Casual Shoes for Men",
+    "category": 11,
+    "subcategory": 17,
+    "image": "products/manshoes1_2cohkiS.jpeg",
+    "price": "3000.00",
+    "old_price": "4000.00",
+    "short_description": "Long-lasting floral fragrance for everyday use.",
+    "description": "Long-lasting floral fragrance for everyday use. sports shoes man",
+    "color": "Black",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-08T08:04:20.452Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 33,
+  "fields": {
+    "name": "sports Shoes",
+    "category": 11,
+    "subcategory": 17,
+    "image": "products/shoes2man.jpeg",
+    "price": "300.00",
+    "old_price": "500.00",
+    "short_description": "free kicks fk - freesole navy latest sports shoes for men",
+    "description": "free kicks fk - freesole navy latest sports shoes for men",
+    "color": "Black",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-08T08:18:22.390Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 34,
+  "fields": {
+    "name": "Relaxed Fashionable men Casual Shoes",
+    "category": 31,
+    "subcategory": 18,
+    "image": "products/shoes2.jpeg",
+    "price": "416.00",
+    "old_price": "500.00",
+    "short_description": "Step seamlessly from your morning walk to an evening out with these ultimate hybrid men's shoes. Designed with the cushioned comfort of a sports sneaker and the sleek,",
+    "description": "All-Day Comfort: Engineered with a high-rebound, shock-absorbing midsole that cushions every step, reducing foot fatigue during long walks or hours of standing at social events.",
+    "color": "Black",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-09T03:46:40.789Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 35,
+  "fields": {
+    "name": "Men's Running Shoes",
+    "category": 11,
+    "subcategory": 17,
+    "image": "products/shoes3.jpeg",
+    "price": "500.00",
+    "old_price": "600.00",
+    "short_description": "Long-lasting floral fragrance for everyday use.",
+    "description": "All-Day Comfort: Engineered with a high-rebound, shock-absorbing midsole that cushions every step, reducing foot fatigue during long walks or hours of standing at social events.",
+    "color": "",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T03:53:08.179Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 36,
+  "fields": {
+    "name": "Lastest women casual shoeses",
+    "category": 28,
+    "subcategory": 20,
+    "image": "products/womanshoes1.jpeg",
+    "price": "340.00",
+    "old_price": "400.00",
+    "short_description": "casual shoes for girls and best quality sneaker for girls best",
+    "description": "Effortless style meets playground-ready comfort with these ultra-lightweight girls' casual slip-on shoes. Featuring breathable materials, a flexible sole, and a charming fuss-free",
+    "color": "multi Color",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T03:58:49.737Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 37,
+  "fields": {
+    "name": "Lastest women casual shoes",
+    "category": 31,
+    "subcategory": 20,
+    "image": "products/womanshoes1_gPQYPq2.jpeg",
+    "price": "340.00",
+    "old_price": "400.00",
+    "short_description": "casual shoes for girls and best quality sneaker for girls best",
+    "description": "Effortless style meets playground-ready comfort with these ultra-lightweight girls' casual slip-on shoes. Featuring breathable materials, a flexible sole, and a charming fuss-free",
+    "color": "multi Color",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T03:59:00.984Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 38,
+  "fields": {
+    "name": "styles modern women boots",
+    "category": 33,
+    "subcategory": 20,
+    "image": "products/women_shoes_2.jpeg",
+    "price": "393.00",
+    "old_price": "500.00",
+    "short_description": "women's black ankle boots featuring a sleek desings cloesd round",
+    "description": "Step into effortless elegance with these women's sleek black ankle boots. Featuring a classic closed round-toe design and a refined, minimalist silhouette, these boots deliver the",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:04:57.320Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 39,
+  "fields": {
+    "name": "fashionable Black boots",
+    "category": 31,
+    "subcategory": 22,
+    "image": "products/woamnshoes3.jpeg",
+    "price": "500.00",
+    "old_price": "1000.00",
+    "short_description": "fashionable black boots",
+    "description": "fashionable black boots women styling",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:17:31.170Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 40,
+  "fields": {
+    "name": "fancy unqiue women boots",
+    "category": 31,
+    "subcategory": 23,
+    "image": "products/women_4.jpeg",
+    "price": "1000.00",
+    "old_price": "1500.00",
+    "short_description": "Fancy Unqiue Women boots",
+    "description": "Fancy Unqiue Women boots desing",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T04:21:16.034Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 41,
+  "fields": {
+    "name": "fancy unqiue women boots",
+    "category": 31,
+    "subcategory": 23,
+    "image": "products/women_4_flUdsvy.jpeg",
+    "price": "1000.00",
+    "old_price": "1500.00",
+    "short_description": "Fancy Unqiue Women boots",
+    "description": "Fancy Unqiue Women boots desing",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:21:29.553Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 42,
+  "fields": {
+    "name": "ROMDS fashionable footwear fancy",
+    "category": 11,
+    "subcategory": 24,
+    "image": "products/momen4.jpeg",
+    "price": "379.00",
+    "old_price": "500.00",
+    "short_description": "ROMDS fashionable footwear trendy women boots",
+    "description": "ROMDS fashionable footwear trendy women boots fabulous",
+    "color": "grey",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:26:20.497Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 43,
+  "fields": {
+    "name": "ROMDS fashionable footwear fancy",
+    "category": 31,
+    "subcategory": 24,
+    "image": "products/women5.jpeg",
+    "price": "500.00",
+    "old_price": "700.00",
+    "short_description": "ROMDS fashionable footwear trendy women boots",
+    "description": "ROMDS fashionable footwear trendy casual women boots",
+    "color": "white",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:32:43.433Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 44,
+  "fields": {
+    "name": "Faces Canada comfy mattel",
+    "category": 15,
+    "subcategory": 2,
+    "image": "products/makeup9.jpeg",
+    "price": "50.00",
+    "old_price": "70.00",
+    "short_description": "Faces canada comfy matte wow Liquid lipstics",
+    "description": "Faces canada comfy matte wow Liquid lipstics",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:38:57.944Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 45,
+  "fields": {
+    "name": "Faces canada weightless stay matte finish",
+    "category": 15,
+    "subcategory": 27,
+    "image": "products/makeup10.jpeg",
+    "price": "100.00",
+    "old_price": "200.00",
+    "short_description": "Faces canada weigthless stay matte finish",
+    "description": "Faces canada weigthless stay matte finish Powder",
+    "color": "",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T04:44:04.876Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 46,
+  "fields": {
+    "name": "Hilary Rhoda power of blur | lightweight",
+    "category": 15,
+    "subcategory": 28,
+    "image": "products/makeup11.jpeg",
+    "price": "174.00",
+    "old_price": "249.00",
+    "short_description": "Hilary Rhoda Power of blur primer",
+    "description": "Hilary Rhoda Power of blur primer Lightweight",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:49:35.305Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 47,
+  "fields": {
+    "name": "Lotus Makeup",
+    "category": 14,
+    "subcategory": 29,
+    "image": "products/makeup12.jpeg",
+    "price": "244.00",
+    "old_price": "300.00",
+    "short_description": "Lotus makeup Divine Dew herbal sindoor",
+    "description": "Lotus makeup Divine Dew herbal Sindoor love drop",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:53:45.681Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 48,
+  "fields": {
+    "name": "Premium  ultra concealer",
+    "category": 14,
+    "subcategory": 30,
+    "image": "products/makeup13.jpeg",
+    "price": "100.00",
+    "old_price": "230.00",
+    "short_description": "Concealer palette,monisturizing & waterproof long lasting matte",
+    "description": "Concealer palette,monisturizing & waterproof long lasting matte",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T04:59:48.683Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 49,
+  "fields": {
+    "name": "Sotrue stobe llluminating cream + moisturizer",
+    "category": 14,
+    "subcategory": 31,
+    "image": "products/makeup14.jpeg",
+    "price": "231.00",
+    "old_price": "300.00",
+    "short_description": "sotrue stobe llluminating cream + moisturizer",
+    "description": "sotrue stobe llluminating cream + moisturizer",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T05:03:43.308Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 50,
+  "fields": {
+    "name": "Hair Straightener",
+    "category": 5,
+    "subcategory": 32,
+    "image": "products/electi6.jpeg",
+    "price": "300.00",
+    "old_price": "344.00",
+    "short_description": "NEWLY ARRIVED HAIR STARIGHTNER tempperature contorl",
+    "description": "NEWLY ARRIVED HAIR STARIGHTNER tempperature contorl",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T05:09:53.069Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 51,
+  "fields": {
+    "name": "Styling New Design Digital watch for Girl's or Boy",
+    "category": 25,
+    "subcategory": 33,
+    "image": "products/elec7.jpeg",
+    "price": "100.00",
+    "old_price": "150.00",
+    "short_description": "Styling new Design Digital watch for Girls or body in best price",
+    "description": "Styling new Design Digital watch for Girls or body in best price",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T05:15:20.300Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 52,
+  "fields": {
+    "name": "YUVRAJ TREDING AIRPOD PRO",
+    "category": 25,
+    "subcategory": 34,
+    "image": "products/elec8.jpeg",
+    "price": "219.00",
+    "old_price": "284.00",
+    "short_description": "yuvraj  treding airpof pro- A- true wireless blutetooth",
+    "description": "Styling new Design Digital watch for Girls or body in best price",
+    "color": "white",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T05:20:15.568Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 53,
+  "fields": {
+    "name": "Abexo ABREXO,abx6700",
+    "category": 27,
+    "subcategory": 35,
+    "image": "products/watch10.jpeg",
+    "price": "3000.00",
+    "old_price": "5000.00",
+    "short_description": "Abrexo ABREXO,ABx700 -Date working black unqiue 3D dial",
+    "description": "Abrexo ABREXO,ABx700 -Date working black unqiue 3D dial",
+    "color": "Black",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-09T05:26:00.127Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 54,
+  "fields": {
+    "name": "AMERICANVIBER brandand Ring",
+    "category": 28,
+    "subcategory": 36,
+    "image": "products/watch11.jpeg",
+    "price": "1450.00",
+    "old_price": "1500.00",
+    "short_description": "AMERICANVIBER  brandnded Ring Diamonds calendar slilicone",
+    "description": "AMERICANVIBER  brandnded Ring Diamonds calendar silicone",
+    "color": "Black",
+    "size": "",
+    "gender": "Men",
+    "available": true,
+    "created_at": "2026-10-09T05:30:46.309Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 55,
+  "fields": {
+    "name": "Men's premium green watch",
+    "category": 27,
+    "subcategory": 11,
+    "image": "products/watch12.jpeg",
+    "price": "285.00",
+    "old_price": "336.00",
+    "short_description": "Men's premium Green Dial stainless steel Analog watchs",
+    "description": "Men's premium Green Dial stainless steel Analog watchs",
+    "color": "Green",
+    "size": "Free Size",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T05:35:01.740Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 56,
+  "fields": {
+    "name": "Styling jewllery",
+    "category": 4,
+    "subcategory": 38,
+    "image": "products/imgsaccres3.jpeg",
+    "price": "120.00",
+    "old_price": "150.00",
+    "short_description": "Styling jewellery styling designed rose gold",
+    "description": "Styling jewellery styling designed rose gold  & sliver  poish AD stone",
+    "color": "Sliver Gold",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:04:42.856Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 57,
+  "fields": {
+    "name": "Double choker set golden",
+    "category": 4,
+    "subcategory": 39,
+    "image": "products/imgaccres4.jpeg",
+    "price": "87.00",
+    "old_price": "100.00",
+    "short_description": "Double choker set gold and sliver",
+    "description": "Double choker set gold and sliver",
+    "color": "gold and sliver",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:06:45.283Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 58,
+  "fields": {
+    "name": "Sunglasses",
+    "category": 4,
+    "subcategory": 40,
+    "image": "products/korenasungleses.jpeg",
+    "price": "200.00",
+    "old_price": "250.00",
+    "short_description": "SPECTOCR SUNGLESSES OVAIL LINE BROWN",
+    "description": "SPECTOCR SUNGLESSES OVAIL LINE BROWN",
+    "color": "Brown",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:17:59.199Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 59,
+  "fields": {
+    "name": "BLACK REVEN vintags",
+    "category": 9,
+    "subcategory": 40,
+    "image": "products/sunglessgormalacc5.jpeg",
+    "price": "100.00",
+    "old_price": "300.00",
+    "short_description": "BLACK REVEN vintags oval metal sunglasses men and woamn BLACK REVEN vintags oval metal sunglasses men and women and boy",
+    "description": "BLACK REVEN vintags oval metal sunglasses men and women and bod",
+    "color": "Black",
+    "size": "",
+    "gender": "Unisex",
+    "available": true,
+    "created_at": "2026-10-09T06:20:16.957Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 61,
+  "fields": {
+    "name": "Earrings",
+    "category": 9,
+    "subcategory": 38,
+    "image": "products/erring1.jpeg",
+    "price": "117.00",
+    "old_price": "200.00",
+    "short_description": "new design women daily were earrings",
+    "description": "new design women daily were earrings",
+    "color": "gold and sliver",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:27:08.525Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 62,
+  "fields": {
+    "name": "Earrings",
+    "category": 4,
+    "subcategory": 38,
+    "image": "products/erring2.jpeg",
+    "price": "161.00",
+    "old_price": "200.00",
+    "short_description": "ROMKING FASHION HUN pack of 1 Gold polish  Drop & Dangle Earrings",
+    "description": "ROMKING FASHION HUN pack of 1 Gold polish  Drop & Dangle Earrings",
+    "color": "",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:29:47.838Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 63,
+  "fields": {
+    "name": "Earrings",
+    "category": 9,
+    "subcategory": 38,
+    "image": "products/erring3.jpeg",
+    "price": "108.00",
+    "old_price": "332.00",
+    "short_description": "stylishkudi  Dazzle Demo pral jhumki earrings (Black)",
+    "description": "stylishkudi  Dazzle Demo pral jhumki earrings (Black)",
+    "color": "Black & sliver",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:32:03.321Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 64,
+  "fields": {
+    "name": "Patent Leather Heels Sandals",
+    "category": 4,
+    "subcategory": 41,
+    "image": "products/blacksendels1.jpeg",
+    "price": "300.00",
+    "old_price": "500.00",
+    "short_description": "women's Black Butterflys Bow Heels 2026 for owman crytals embellished",
+    "description": "women's Black Butterflys Bow Heels 2026 for owman crytals embellished",
+    "color": "Black",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:39:23.348Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 65,
+  "fields": {
+    "name": "Women's designer Roes gold",
+    "category": 4,
+    "subcategory": 41,
+    "image": "products/golden3.jpeg",
+    "price": "340.00",
+    "old_price": "400.00",
+    "short_description": "Women's Designer rose gold sparking party wear heels",
+    "description": "Women's Designer rose gold sparking party wear heels",
+    "color": "golden",
+    "size": "",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:42:12.962Z"
+  }
+},
+{
+  "model": "appaccount.product",
+  "pk": 66,
+  "fields": {
+    "name": "Heels ,pink",
+    "category": 9,
+    "subcategory": null,
+    "image": "products/pinksendesl2.jpeg",
+    "price": "264.00",
+    "old_price": "500.00",
+    "short_description": "Women's Embroidered Heels,pink Embridered mules, floral",
+    "description": "Women's Embroidered Heels,pink Embridered mules, floral",
+    "color": "pink",
+    "size": "6, 7, 8, 9, 10",
+    "gender": "Women",
+    "available": true,
+    "created_at": "2026-10-09T06:45:07.737Z"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 1,
+  "fields": {
+    "category": 8,
+    "name": "makeup product",
+    "image": "subcategories/beauti_rpduct1.jpg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 2,
+  "fields": {
+    "category": 15,
+    "name": "LIPSTICK",
+    "image": "subcategories/makeup5.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 3,
+  "fields": {
+    "category": 15,
+    "name": "Eyebrow pencil",
+    "image": "subcategories/makeup6.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 4,
+  "fields": {
+    "category": 15,
+    "name": "face pack",
+    "image": "subcategories/makeup8.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 5,
+  "fields": {
+    "category": 23,
+    "name": "Coffee & Tea makers",
+    "image": "subcategories/electric1.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 6,
+  "fields": {
+    "category": 6,
+    "name": "Hair Dryers",
+    "image": "subcategories/eletriv2.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 7,
+  "fields": {
+    "category": 5,
+    "name": "Nail Dryers",
+    "image": "subcategories/elec_3.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 8,
+  "fields": {
+    "category": 27,
+    "name": "Analog Watches",
+    "image": "subcategories/watch1.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 9,
+  "fields": {
+    "category": 28,
+    "name": "New Solid Designer metal",
+    "image": "subcategories/watch2.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 10,
+  "fields": {
+    "category": 28,
+    "name": "Analog Watches",
+    "image": "subcategories/watchs4.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 11,
+  "fields": {
+    "category": 28,
+    "name": "Premium  men watches",
+    "image": "subcategories/watchs5.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 12,
+  "fields": {
+    "category": 28,
+    "name": "Analog Watches",
+    "image": "subcategories/watch6.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 13,
+  "fields": {
+    "category": 27,
+    "name": "kashmiri  watch",
+    "image": "subcategories/watch7.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 14,
+  "fields": {
+    "category": 28,
+    "name": "stainless steel",
+    "image": "subcategories/watch8.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 15,
+  "fields": {
+    "category": 1,
+    "name": "shoes",
+    "image": "subcategories/caursalboot1.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 16,
+  "fields": {
+    "category": 1,
+    "name": "sports Shoes",
+    "image": "subcategories/manshoes1.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 17,
+  "fields": {
+    "category": 11,
+    "name": "sports Shoes",
+    "image": "subcategories/manshoes1_2f4O85T.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 18,
+  "fields": {
+    "category": 11,
+    "name": "Relaxed Fashionable men Casual Shoes",
+    "image": "subcategories/shoes2.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 19,
+  "fields": {
+    "category": 31,
+    "name": "Men's Running Shoes",
+    "image": "subcategories/shoes3.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 20,
+  "fields": {
+    "category": 31,
+    "name": "Lastest women casual shoeses",
+    "image": "subcategories/womanshoes1.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 21,
+  "fields": {
+    "category": 31,
+    "name": "styles modern women boots",
+    "image": "subcategories/women_shoes_2.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 22,
+  "fields": {
+    "category": 11,
+    "name": "fashionable Black boots",
+    "image": "subcategories/woamnshoes3.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 23,
+  "fields": {
+    "category": 31,
+    "name": "fancy unqiue women boots",
+    "image": "subcategories/women_4.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 24,
+  "fields": {
+    "category": 11,
+    "name": "ROMDS fashionable footwear fancy",
+    "image": "subcategories/momen4.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 25,
+  "fields": {
+    "category": 31,
+    "name": "ROMDS fashionable footwear fancy",
+    "image": "subcategories/women5.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 26,
+  "fields": {
+    "category": 14,
+    "name": "Faces Canada comfy mattel",
+    "image": "subcategories/makeup9.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 27,
+  "fields": {
+    "category": 15,
+    "name": "Faces canada weightless stay matte finish",
+    "image": "subcategories/makeup10.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 28,
+  "fields": {
+    "category": 15,
+    "name": "Hilary Rhoda power of blur | lightweight",
+    "image": "subcategories/makeup11.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 29,
+  "fields": {
+    "category": 15,
+    "name": "Lotus Makeup",
+    "image": "subcategories/makeup12.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 30,
+  "fields": {
+    "category": 14,
+    "name": "Premium  ultra concealer",
+    "image": "subcategories/makeup13.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 31,
+  "fields": {
+    "category": 14,
+    "name": "Sotrue stobe llluminating cream + moisturizer",
+    "image": "subcategories/makeup14.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 32,
+  "fields": {
+    "category": 6,
+    "name": "Hair Straightener",
+    "image": "subcategories/electi6.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 33,
+  "fields": {
+    "category": 23,
+    "name": "Styling New Design Digital watch for Girl's or Boy",
+    "image": "subcategories/elec7.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 34,
+  "fields": {
+    "category": 6,
+    "name": "YUVRAJ TREDING AIRPOD PRO",
+    "image": "subcategories/elec8.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 35,
+  "fields": {
+    "category": 28,
+    "name": "Abrexo watch",
+    "image": "subcategories/watch10.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 36,
+  "fields": {
+    "category": 27,
+    "name": "AMERICANVIBER brandand Ring",
+    "image": "subcategories/watch11.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 37,
+  "fields": {
+    "category": 30,
+    "name": "Men's premium green watch",
+    "image": "subcategories/watch12.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 38,
+  "fields": {
+    "category": 9,
+    "name": "Styling jewllery",
+    "image": "subcategories/imgsaccres3.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 39,
+  "fields": {
+    "category": 4,
+    "name": "Double choker set golden",
+    "image": "subcategories/imgaccres4.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 40,
+  "fields": {
+    "category": 4,
+    "name": "Sunglasses",
+    "image": "subcategories/korenasungleses.jpeg"
+  }
+},
+{
+  "model": "appaccount.subcategory",
+  "pk": 41,
+  "fields": {
+    "category": 4,
+    "name": "sundals",
+    "image": "subcategories/blacksendels1.jpeg"
+  }
+}
+]

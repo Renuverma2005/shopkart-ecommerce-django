@@ -10,18 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+"""
+Django settings for finalecommerce project.
+"""
+
+import os
 from pathlib import Path
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+import dj_database_url
+# =====================================================
+
+# BASE DIRECTORY
+
+# =====================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# =====================================================
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
+# SECURITY SETTINGS
 
-# SECURITY WARNING: keep the secret key used in production secret!
-import os
+# =====================================================
 
 SECRET_KEY = os.environ.get(
 "DJANGO_SECRET_KEY",
@@ -30,170 +40,248 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
+# =====================================================
+
+# ALLOWED HOSTS
+
+# =====================================================
+
 ALLOWED_HOSTS = [
 "localhost",
 "127.0.0.1",
 ]
 
-CSRF_TRUSTED_ORIGINS = []
-
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 
 if RENDER_EXTERNAL_HOSTNAME:
  ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-CSRF_TRUSTED_ORIGINS.append(
-f"https://{RENDER_EXTERNAL_HOSTNAME}"
-)
+
+# =====================================================
+
+# CSRF TRUSTED ORIGINS
+
+# =====================================================
+
+CSRF_TRUSTED_ORIGINS = [
+"https://shopkart-ecommerce-django-1.onrender.com",
+]
+
+if RENDER_EXTERNAL_HOSTNAME:
+ render_origin = f"https://{RENDER_EXTERNAL_HOSTNAME}"
 
 
-# Application definition
+if render_origin not in CSRF_TRUSTED_ORIGINS:
+    CSRF_TRUSTED_ORIGINS.append(render_origin)
+
+
+# =====================================================
+
+# APPLICATION DEFINITION
+
+# =====================================================
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'appaccount',
+"django.contrib.admin",
+"django.contrib.auth",
+"django.contrib.contenttypes",
+"django.contrib.sessions",
+"django.contrib.messages",
+"django.contrib.staticfiles",
+"appaccount",
 ]
 
+# =====================================================
+
+# MIDDLEWARE
+
+# =====================================================
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+"django.middleware.security.SecurityMiddleware",
+"whitenoise.middleware.WhiteNoiseMiddleware",
+"django.contrib.sessions.middleware.SessionMiddleware",
+"django.middleware.common.CommonMiddleware",
+"django.middleware.csrf.CsrfViewMiddleware",
+"django.contrib.auth.middleware.AuthenticationMiddleware",
+"django.contrib.messages.middleware.MessageMiddleware",
+"django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'finalecommerce.urls'
+# =====================================================
+
+# URL CONFIGURATION
+
+# =====================================================
+
+ROOT_URLCONF = "finalecommerce.urls"
+
+# =====================================================
+
+# TEMPLATES
+
+# =====================================================
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+{
+"BACKEND": "django.template.backends.django.DjangoTemplates",
+"DIRS": [BASE_DIR / "templates"],
+"APP_DIRS": True,
+"OPTIONS": {
+"context_processors": [
+"django.template.context_processors.request",
+"django.contrib.auth.context_processors.auth",
+"django.contrib.messages.context_processors.messages",
+],
+},
+},
 ]
 
-WSGI_APPLICATION = 'finalecommerce.wsgi.application'
+WSGI_APPLICATION = "finalecommerce.wsgi.application"
 
+# =====================================================
 
-# Database
-# https://docs.djangoproject.com/en/6.1/ref/settings/#databases
+# DATABASE
 
-# Database
+# Render: PostgreSQL
+
+# Local computer: SQLite
+
+# =====================================================
+
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.parse(
-            DATABASE_URL,
-            conn_max_age=600,
-            ssl_require=True,
-        )
-    }
+ DATABASES = {
+"default": dj_database_url.parse(
+DATABASE_URL,
+conn_max_age=600,
+ssl_require=True,
+)
+}
 else:
-    # Local computer par SQLite use hoga
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+ DATABASES = {
+"default": {
+"ENGINE": "django.db.backends.sqlite3",
+"NAME": BASE_DIR / "db.sqlite3",
+}
+}
 
-# Password validation
-# https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
+# =====================================================
+
+# PASSWORD VALIDATION
+
+# =====================================================
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+{
+"NAME": (
+"django.contrib.auth.password_validation."
+"UserAttributeSimilarityValidator"
+),
+},
+{
+"NAME": (
+"django.contrib.auth.password_validation."
+"MinimumLengthValidator"
+),
+},
+{
+"NAME": (
+"django.contrib.auth.password_validation."
+"CommonPasswordValidator"
+),
+},
+{
+"NAME": (
+"django.contrib.auth.password_validation."
+"NumericPasswordValidator"
+),
+},
 ]
 
+# =====================================================
 
-# Internationalization
-# https://docs.djangoproject.com/en/6.1/topics/i18n/
+# INTERNATIONALIZATION
 
-LANGUAGE_CODE = 'en-us'
+# =====================================================
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = "en-us"
+
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
-
 USE_TZ = True
 
+# =====================================================
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.1/howto/static-files/
+# STATIC FILES
 
-STATIC_URL = 'static/'
+# =====================================================
 
-
-# Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
-
-
-
-
-
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+STORAGES = {
+"default": {
+"BACKEND": "django.core.files.storage.FileSystemStorage",
+},
+"staticfiles": {
+"BACKEND": (
+"whitenoise.storage.CompressedManifestStaticFilesStorage"
+),
+},
+}
 
+# =====================================================
 
+# MEDIA FILES
 
+# =====================================================
 
+MEDIA_URL = "/media/"
 
+MEDIA_ROOT = BASE_DIR / "media"
 
+# =====================================================
 
+# EMAIL SETTINGS
+
+# =====================================================
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# =====================================================
+
+# LOGGING
+
+# =====================================================
 
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "loggers": {
-        "django.request": {
-            "handlers": ["console"],
-            "level": "ERROR",
-            "propagate": False,
-        },
-    },
+"version": 1,
+"disable_existing_loggers": False,
+"handlers": {
+"console": {
+"class": "logging.StreamHandler",
+},
+},
+"loggers": {
+"django.request": {
+"handlers": ["console"],
+"level": "ERROR",
+"propagate": False,
+},
+},
 }
+
+# =====================================================
+
+# DEFAULT PRIMARY KEY
+
+# =====================================================
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
