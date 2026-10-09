@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Watches | ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="watches-page">
+
+    <div class="container">
+
+        <!-- PAGE HEADER -->
+        <div class="watches-page-header">
+
+            <div>
+                <span class="watches-subtitle">
+                    TIMEPIECE COLLECTION
+                </span>
+
+                <h1>
+                    Watches
+                </h1>
+
+                <p>
+                    Discover stylish watches designed to complete
+                    your everyday and special occasion looks.
+                </p>
+            </div>
+
+            <div class="watches-count">
+                {{ watches_products|length }} Products
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+        {% if watches_products %}
+
+        <div class="watches-product-grid">
+
+            {% for product in watches_products %}
+
+            <div class="watches-product-card">
+
+                <!-- IMAGE -->
+                <div class="watches-product-image">
+
+                    {% if product.image %}
+
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                        >
+                    </a>
+
+                    {% else %}
+
+                    <div class="watches-no-image">
+                        <i class="bi bi-watch"></i>
+                        <span>No Image</span>
+                    </div>
+
+                    {% endif %}
+
+
+                    <!-- SALE -->
+                    {% if product.old_price %}
+
+                    <span class="watches-sale-badge">
+                        SALE
+                    </span>
+
+                    {% endif %}
+
+
+                    <!-- OUT OF STOCK -->
+                    {% if not product.available %}
+
+                    <span class="watches-stock-badge">
+                        OUT OF STOCK
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- PRODUCT INFO -->
+                <div class="watches-product-info">
+
+                    <span class="watches-product-category">
+                        {{ product.category.name }}
+                    </span>
+
+
+                    <h2>
+
+                        <a
+                            href="{% url 'product_detail' product.id %}"
+                            class="watches-product-title"
+                        >
+                            {{ product.name }}
+                        </a>
+
+                    </h2>
+
+
+                    <!-- RATING -->
+                    <div class="watches-product-rating">
+
+                        <span>
+                            ★★★★★
+                        </span>
+
+                        <small>
+                            4.8
+                        </small>
+
+                    </div>
+
+
+                    <!-- SHORT DESCRIPTION -->
+                    {% if product.short_description %}
+
+                    <p class="watches-short-description">
+                        {{ product.short_description }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <!-- PRICE -->
+                    <div class="watches-product-price">
+
+                        <strong>
+                            ₹{{ product.price }}
+                        </strong>
+
+                        {% if product.old_price %}
+
+                        <del>
+                            ₹{{ product.old_price }}
+                        </del>
+
+                        <span class="watches-discount">
+                            {{ product.discount_percentage }}% OFF
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+                    <div class="watches-product-actions">
+
+                        <a
+                            href="{% url 'product_detail' product.id %}"
+                            class="watches-view-btn"
+                        >
+                            View Details
+                        </a>
+
+
+                        {% if product.available %}
+
+                        <a
+                            href="{% url 'add_to_cart' product.id %}"
+                            class="watches-cart-btn-small"
+                            title="Add to Cart"
+                        >
+                            <i class="bi bi-cart3"></i>
+                        </a>
+
+                        {% else %}
+
+                        <button
+                            class="watches-disabled-small"
+                            disabled
+                        >
+                            Out
+                        </button>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- EMPTY -->
+        {% else %}
+
+        <div class="watches-empty">
+
+            <div class="watches-empty-icon">
+                <i class="bi bi-watch"></i>
+            </div>
+
+            <h2>
+                No Watches Products Found
+            </h2>
+
+            <p>
+                Watches products will appear here once they
+                are added from the admin panel.
+            </p>
+
+            <a href="{% url 'home' %}">
+                Continue Shopping
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

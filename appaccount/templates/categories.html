@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Categories | ShopKart
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/categories.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="categories-page">
+
+    <div class="categories-container">
+
+        <!-- HEADER -->
+        <div class="categories-header">
+
+            <div>
+                <span class="categories-eyebrow fw-bold fs-5 ">
+                    SHOP BY CATEGORY
+                </span>
+
+                <h1>Explore All Categories</h1>
+
+                <p class="heading ">
+                    Choose a category and explore its products.
+                </p>
+            </div>
+
+            <div class="category-count">
+                <strong>{{ categories|length }}</strong>
+                <span>Categories</span>
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORY GRID -->
+        <div class="category-grid">
+
+            {% for category in categories %}
+
+            <a href="{% url 'category_products' category.id %}"
+               class="category-card">
+
+                <div class="category-image">
+
+                    {% if category.image %}
+
+                        <img
+                            src="{{ category.image.url }}"
+                            alt="{{ category.name }}"
+                        >
+
+                    {% else %}
+
+                        <div class="category-no-image">
+                            {{ category.name|first|upper }}
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+                <div class="category-info">
+
+                    <h3>
+                        {{ category.name }}
+                    </h3>
+
+                    <span>
+                        Explore →
+                    </span>
+
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <div class="no-category">
+
+                <h3>No Categories Found</h3>
+
+                <p>
+                    Please add categories from Django Admin.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

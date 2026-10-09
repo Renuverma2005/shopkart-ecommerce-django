@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Register | ShopKart{% endblock %}
+
+{% block content %}
+
+<section class="register-page">
+
+    <div class="register-card">
+
+        <!-- Header -->
+        <div class="register-header">
+
+            <div class="register-icon">
+                <i class="bi bi-person-plus-fill"></i>
+            </div>
+
+            <h2>Create Account</h2>
+
+            <p>
+                Join ShopKart and start shopping today
+            </p>
+
+        </div>
+
+
+        <!-- Error Message -->
+        {% if error %}
+
+        <div class="register-error">
+            <i class="bi bi-exclamation-circle"></i>
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <!-- Register Form -->
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- Username -->
+            <div class="register-field">
+
+                <label>
+                    Username
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="bi bi-person"></i>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="register-field">
+
+                <label>
+                    Email Address
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="bi bi-envelope"></i>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="register-field">
+
+                <label>
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="bi bi-lock"></i>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="register-field">
+
+                <label>
+                    Confirm Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    <input
+                        type="password"
+                        name="confirm_password"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Button -->
+            <button type="submit" class="register-btn">
+
+                <span>
+                    Create Account
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </button>
+
+        </form>
+
+
+        <!-- Login -->
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="#">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

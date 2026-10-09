@@ -1,0 +1,2675 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+{% if shoe %}
+{{ shoe.name }} | ShopKart
+{% else %}
+{{ product.name }} | ShopKart
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- =====================================================
+     NORMAL PRODUCT DETAIL
+===================================================== -->
+
+{% if product %}
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<section class="product-breadcrumb">
+
+<div class="container">
+
+    <div class="breadcrumb-box">
+
+        <!-- HOME -->
+
+        <a href="{% url 'home' %}" class="breadcrumb-link">
+
+            <i class="bi bi-house-door-fill"></i>
+
+            Home
+
+        </a>
+
+        <i class="bi bi-chevron-right breadcrumb-arrow"></i>
+
+
+        <!-- CATEGORIES -->
+
+        <a href="{% url 'categories' %}" class="breadcrumb-link">
+
+            <i class="bi bi-grid"></i>
+
+            Categories
+
+        </a>
+
+        <i class="bi bi-chevron-right breadcrumb-arrow"></i>
+
+
+        <!-- CURRENT CATEGORY -->
+
+        <a
+            href="{% url 'category_products' product.category.id %}"
+            class="breadcrumb-link"
+        >
+
+            {{ product.category.name }}
+
+        </a>
+
+        <i class="bi bi-chevron-right breadcrumb-arrow"></i>
+
+
+        <!-- CURRENT PRODUCT -->
+
+        <span class="current">
+
+            {{ product.name }}
+
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     PRODUCT DETAIL
+========================= -->
+
+<section class="product-detail-section">
+
+<div class="container">
+
+    <div class="product-detail-card">
+
+        <div class="row g-0">
+
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="col-lg-6">
+
+                <div class="product-image-area">
+
+                    {% if product.old_price and product.old_price > product.price %}
+
+                        <div class="discount-badge">
+
+                            <i class="bi bi-fire"></i>
+
+                            SALE
+
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if product.image %}
+
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                            class="main-product-image"
+                        >
+
+                    {% else %}
+
+                        <div class="no-product-image">
+
+                            <i class="bi bi-image"></i>
+
+                            <p>
+                                No Image Available
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT INFORMATION -->            <div class="col-lg-6">
+
+                <div class="product-info-area">
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <h1 class="product-title">
+
+                        {{ product.name }}
+
+                    </h1>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="product-category-link">
+
+                        <i class="bi bi-grid"></i>
+
+                        Category:
+
+                        <a href="{% url 'category_products' product.category.id %}">
+
+                            {{ product.category.name }}
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- RATING -->
+
+                    <div class="product-rating">
+
+                        <span class="stars">
+
+                            <i class="bi bi-star-fill"></i>
+
+                            <i class="bi bi-star-fill"></i>
+
+                            <i class="bi bi-star-fill"></i>
+
+                            <i class="bi bi-star-fill"></i>
+
+                            <i class="bi bi-star-half"></i>
+
+                        </span>
+
+                        <span class="rating-text">
+                            4.5
+                        </span>
+
+                        <span class="review-count">
+                            (120 Reviews)
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PRICE -->
+
+                    <div class="price-box">
+
+                        <span class="current-price">
+
+                            ₹{{ product.price }}
+
+                        </span>
+
+
+                        {% if product.old_price %}
+
+                            <span class="old-price">
+
+                                ₹{{ product.old_price }}
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="product-description">
+
+                        <h5>
+                            Product Description
+                        </h5>
+
+
+                        {% if product.description %}
+
+                            <p>
+                                {{ product.description }}
+                            </p>
+
+                        {% else %}
+
+                            <p>
+                                Experience premium quality and stylish
+                                design with this ShopKart product.
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- AVAILABILITY -->
+
+                    <div class="availability-box">
+
+                        {% if product.available %}
+
+                            <span class="available">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                In Stock
+
+                            </span>
+
+                            <span class="delivery-text">
+
+                                <i class="bi bi-truck"></i>
+
+                                Fast Delivery Available
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="out-stock">
+
+                                <i class="bi bi-x-circle-fill"></i>
+
+                                Out of Stock
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- FEATURES -->
+
+                    <div class="product-features">
+
+
+                        <!-- FREE DELIVERY -->
+
+                        <div class="feature-item">
+
+                            <div class="feature-icon">
+
+                                <i class="bi bi-truck"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Free Delivery
+                                </strong>
+
+                                <small>
+                                    On orders above ₹1000
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- SECURE PAYMENT -->
+
+                        <div class="feature-item">
+
+                            <div class="feature-icon">
+
+                                <i class="bi bi-shield-check"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Secure Payment
+                                </strong>
+
+                                <small>
+                                    100% secure checkout
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- EASY RETURNS -->
+
+                        <div class="feature-item">
+
+                            <div class="feature-icon">
+
+                                <i class="bi bi-arrow-repeat"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Easy Returns
+                                </strong>
+
+                                <small>
+                                    Simple return policy
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ACTION BUTTONS -->
+
+                    <div class="product-actions">
+
+                        {% if product.available %}
+
+                            <a
+                                href="{% url 'add_to_cart' product.id %}"
+                                class="btn-add-cart"
+                            >
+
+                                <i class="bi bi-cart-plus"></i>
+
+                                Add to Cart
+
+                            </a>
+
+
+                            <a
+                                href="{% url 'buy_now' 'product' product.id %}"
+                                class="btn-buy-now"
+                            >
+
+                                <i class="bi bi-lightning-fill"></i>
+
+                                Buy Now
+
+                            </a>
+
+                        {% else %}
+
+                            <button
+                                class="btn-disabled"
+                                disabled
+                            >
+
+                                <i class="bi bi-x-circle"></i>
+
+                                Out of Stock
+
+                            </button>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- PRODUCT META -->
+
+                    <div class="product-meta">
+
+                        <div>
+
+                            <span>
+                                Product ID
+                            </span>
+
+                            <strong>
+                                #{{ product.id }}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Category
+                            </span>
+
+                            <strong>
+                                {{ product.category.name }}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Availability
+                            </span>
+
+                            <strong>
+
+                                {% if product.available %}
+
+                                    Available
+
+                                {% else %}
+
+                                    Out of Stock
+
+                                {% endif %}
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     RELATED PRODUCTS
+========================= -->
+
+<section class="related-section">
+
+<div class="container">
+
+
+    <!-- HEADING -->
+
+    <div class="section-heading">
+
+        <div>
+
+            <span>
+                YOU MAY ALSO LIKE
+            </span>
+
+            <h2>
+                Related Products
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RELATED PRODUCTS -->
+
+    <div class="row g-4">
+
+        {% for item in related_products %}
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="related-card">
+
+
+                    <!-- IMAGE -->
+
+                    <div class="related-image">
+
+                        {% if item.image %}
+
+                            <img
+                                src="{{ item.image.url }}"
+                                alt="{{ item.name }}"
+                            >
+
+                        {% else %}
+
+                            <div class="related-no-image">
+
+                                <i class="bi bi-image"></i>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        {% if item.old_price and item.old_price > item.price %}
+
+                            <span class="related-sale">
+                                SALE
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- INFO -->
+
+                    <div class="related-info">
+
+                        <h4>
+                            {{ item.name }}
+                        </h4>
+
+
+                        <div class="related-price">
+
+                            <strong>
+                                ₹{{ item.price }}
+                            </strong>
+
+
+                            {% if item.old_price %}
+
+                                <del>
+                                    ₹{{ item.old_price }}
+                                </del>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- VIEW DETAILS -->
+
+                        <a
+                            href="{% url 'product_detail' item.id %}"
+                            class="related-btn"
+                        >
+
+                            View Details
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        {% empty %}
+
+            <div class="col-12">
+
+                <div class="no-related">
+
+                    <i class="bi bi-box-seam"></i>
+
+                    <h4>
+                        No Related Products
+                    </h4>
+
+                    <p>
+                        There are no other products in this category.
+                    </p>
+
+
+                    <!-- CATEGORY BUTTON -->
+
+                    <a
+                        href="{% url 'category_products' product.category.id %}"
+                        class="btn btn-primary"
+                    >
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Back to {{ product.category.name }}
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+</section>
+
+{% endif %}
+
+
+
+
+
+
+
+{% comment %} shoes.html page start here {% endcomment %}
+<!-- =====================================================
+     SHOES PRODUCT DETAIL — SHOPKART
+===================================================== -->
+{% if product and product.category and product.category.name|lower == 'shoes' %}
+
+<section class="shoes-detail-section">
+
+    <div class="container">
+
+        <!-- BREADCRUMB -->
+
+        <div class="shoes-breadcrumb">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <span>›</span>
+
+            <a href="{% url 'shoes' %}">
+                Shoes
+            </a>
+
+            <span>›</span>
+
+            <span>
+                {{ product.name }}
+            </span>
+
+        </div>
+
+
+        <!-- MAIN PRODUCT -->
+
+        <div class="shoes-main-card">
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="shoes-image-area">
+
+                <div class="shoes-image-box">
+
+                    {% if product.image %}
+
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                        >
+
+                    {% else %}
+
+                        <div class="shoes-no-image">
+
+                            <i class="bi bi-bag"></i>
+
+                            <span>
+                                No Image Available
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if product.old_price %}
+
+                        <span class="shoes-sale-badge">
+                            SALE
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="shoes-image-note">
+
+                    <i class="bi bi-zoom-in"></i>
+
+                    View Product Image
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="shoes-product-info">
+
+                <span class="shoes-category-label">
+                    SHOES
+                </span>
+
+
+                <h1 class="shoes-product-title">
+
+                    {{ product.name }}
+
+                </h1>
+
+
+                <!-- RATING -->
+
+                <div class="shoes-rating-row">
+
+                    <span class="shoes-rating">
+
+                        4.8
+
+                        <i class="bi bi-star-fill"></i>
+
+                    </span>
+
+                    <span class="shoes-review-count">
+
+                        124 Ratings & 28 Reviews
+
+                    </span>
+
+                </div>
+
+
+                <!-- SHORT DESCRIPTION -->
+
+                {% if product.short_description %}
+
+                <p class="shoes-short-description">
+
+                    {{ product.short_description }}
+
+                </p>
+
+                {% endif %}
+
+
+                <!-- PRICE -->
+
+                <div class="shoes-price-box">
+
+                    <span class="shoes-current-price">
+
+                        ₹{{ product.price }}
+
+                    </span>
+
+
+                    {% if product.old_price %}
+
+                    <del class="shoes-old-price">
+
+                        ₹{{ product.old_price }}
+
+                    </del>
+
+
+                    <span class="shoes-discount">
+
+                        {{ product.discount_percentage }}% OFF
+
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <p class="shoes-tax-text">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Inclusive of all taxes
+
+                </p>
+
+
+                <!-- PRODUCT DETAILS -->
+
+                {% if product.color or product.size or product.gender %}
+
+                <div class="shoes-options">
+
+                    <h3>
+                        Product Details
+                    </h3>
+
+
+                    {% if product.color %}
+
+                    <div class="shoes-option-row">
+
+                        <span>
+                            Color
+                        </span>
+
+                        <strong>
+                            {{ product.color }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if product.size %}
+
+                    <div class="shoes-option-row">
+
+                        <span>
+                            Size
+                        </span>
+
+                        <strong>
+                            {{ product.size }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if product.gender %}
+
+                    <div class="shoes-option-row">
+
+                        <span>
+                            Suitable For
+                        </span>
+
+                        <strong>
+                            {{ product.gender }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- DELIVERY -->
+
+                <div class="shoes-delivery">
+
+                    <div class="shoes-delivery-title">
+
+                        <i class="bi bi-truck"></i>
+
+                        Delivery & Services
+
+                    </div>
+
+
+                    <div class="shoes-delivery-item">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Fast & Reliable Delivery
+                        </span>
+
+                    </div>
+
+
+                    <div class="shoes-delivery-item">
+
+                        <i class="bi bi-arrow-repeat"></i>
+
+                        <span>
+                            Easy Return & Replacement
+                        </span>
+
+                    </div>
+
+
+                    <div class="shoes-delivery-item">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <span>
+                            Quality Checked Product
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="shoes-action-buttons">
+
+                    {% if product.available %}
+
+                    <a
+                        href="{% url 'add_to_cart' product.id %}"
+                        class="shoes-add-cart-btn"
+                    >
+
+                        <i class="bi bi-cart3"></i>
+
+                        Add to Cart
+
+                    </a>
+
+
+                    <a
+                        href="{% url 'buy_now' 'product' product.id %}"
+                        class="shoes-buy-now-btn"
+                    >
+
+                        <i class="bi bi-lightning-fill"></i>
+
+                        Buy Now
+
+                    </a>
+
+                    {% else %}
+
+                    <button
+                        class="shoes-out-btn"
+                        disabled
+                    >
+
+                        Out of Stock
+
+                    </button>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HIGHLIGHTS -->
+
+        <div class="shoes-highlights-card">
+
+            <div class="shoes-section-heading">
+
+                <span>
+                    WHY YOU'LL LOVE IT
+                </span>
+
+                <h2>
+                    Shoe Highlights
+                </h2>
+
+            </div>
+
+
+            <div class="shoes-highlights-grid">
+
+
+                <div class="shoes-highlight">
+
+                    <div class="shoes-highlight-icon">
+
+                        <i class="bi bi-award"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Premium Design
+                        </h3>
+
+                        <p>
+                            Stylish and trendy design suitable for everyday wear.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shoes-highlight">
+
+                    <div class="shoes-highlight-icon">
+
+                        <i class="bi bi-lightning-charge"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Lightweight Comfort
+                        </h3>
+
+                        <p>
+                            Lightweight construction provides comfortable movement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shoes-highlight">
+
+                    <div class="shoes-highlight-icon">
+
+                        <i class="bi bi-gem"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Stylish Look
+                        </h3>
+
+                        <p>
+                            Perfect for casual, sporty and modern outfits.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shoes-highlight">
+
+                    <div class="shoes-highlight-icon">
+
+                        <i class="bi bi-hand-thumbs-up"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Comfortable Wear
+                        </h3>
+
+                        <p>
+                            Designed for regular use, walking and casual outings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="shoes-description-card">
+
+            <div class="shoes-section-heading">
+
+                <span>
+                    PRODUCT INFORMATION
+                </span>
+
+                <h2>
+                    About This Product
+                </h2>
+
+            </div>
+
+
+            <div class="shoes-description-content">
+
+                {% if product.description %}
+
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Discover stylish and comfortable shoes designed
+                        for everyday wear, casual outings, walking and
+                        active lifestyles. The modern design provides a
+                        fashionable look while offering comfortable wear
+                        throughout the day.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- STOCK -->
+
+        <div class="shoes-stock-card">
+
+            <div class="shoes-stock-icon">
+
+                {% if product.available %}
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                {% else %}
+
+                    <i class="bi bi-x-circle-fill"></i>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="shoes-stock-content">
+
+                {% if product.available %}
+
+                    <h3>
+                        Available for Order
+                    </h3>
+
+                    <p>
+                        This shoe is currently available.
+                        Add it to your cart and continue shopping.
+                    </p>
+
+                {% else %}
+
+                    <h3>
+                        Currently Out of Stock
+                    </h3>
+
+                    <p>
+                        This product is currently unavailable.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- RELATED SHOES -->
+
+        {% if related_shoes %}
+
+        <div class="shoes-related-section">
+
+            <div class="shoes-section-heading">
+
+                <span>
+                    YOU MAY ALSO LIKE
+                </span>
+
+                <h2>
+                    More Shoes
+                </h2>
+
+            </div>
+
+
+            <div class="shoes-related-grid">
+
+                {% for item in related_shoes %}
+
+                <div class="shoes-related-card">
+
+                    <a href="{% url 'product_detail' item.id %}">
+
+                        <div class="shoes-related-image">
+
+                            {% if item.image %}
+
+                                <img
+                                    src="{{ item.image.url }}"
+                                    alt="{{ item.name }}"
+                                >
+
+                            {% else %}
+
+                                <div class="shoes-no-image">
+                                    No Image
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </a>
+
+
+                    <div class="shoes-related-info">
+
+                        <span>
+                            Shoes
+                        </span>
+
+                        {% if item.subcategory %}
+
+                        <small>
+                            {{ item.subcategory.name }}
+                        </small>
+
+                        {% endif %}
+
+
+                        <h3>
+                            {{ item.name }}
+                        </h3>
+
+
+                        <div class="shoes-related-price">
+
+                            ₹{{ item.price }}
+
+                            {% if item.old_price %}
+
+                                <del>
+                                    ₹{{ item.old_price }}
+                                </del>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'product_detail' item.id %}"
+                            class="shoes-related-btn"
+                        >
+
+                            View Details
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} maeup.html page start here {% endcomment %}
+
+<!-- =====================================================
+     MAKEUP PRODUCT DETAIL
+===================================================== -->
+
+{% if product and product.category and product.category.name|lower == 'makeup' %}
+
+<section class="makeup-detail-section">
+
+
+<div class="container">
+
+    <!-- BREADCRUMB -->
+    <div class="makeup-breadcrumb">
+        <a href="{% url 'home' %}">Home</a>
+        <span>/</span>
+        <a href="{% url 'makeup' %}">Makeup</a>
+        <span>/</span>
+        <span>{{ product.name }}</span>
+    </div>
+
+
+    <!-- PRODUCT DETAIL -->
+    <div class="makeup-detail-card">
+
+        <!-- IMAGE -->
+        <div class="makeup-detail-image">
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.name }}">
+            {% else %}
+                <div class="makeup-no-image">
+                    No Image Available
+                </div>
+            {% endif %}
+
+            {% if product.old_price %}
+                <span class="makeup-detail-sale">
+                    SALE
+                </span>
+            {% endif %}
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="makeup-detail-info">
+
+            <span class="makeup-detail-label">
+                BEAUTY COLLECTION
+            </span>
+
+            <h1>
+                {{ product.name }}
+            </h1>
+
+            <div class="makeup-detail-category">
+                Makeup
+            </div>
+
+
+            <!-- RATING -->
+            <div class="makeup-detail-rating">
+
+                <span class="makeup-stars">
+                    ★★★★★
+                </span>
+
+                <span>
+                    4.8
+                </span>
+
+            </div>
+
+
+            <!-- PRICE -->
+            <div class="makeup-detail-price">
+
+                <span class="makeup-price">
+                    ₹{{ product.price }}
+                </span>
+
+                {% if product.old_price %}
+                    <span class="makeup-old-price">
+                        ₹{{ product.old_price }}
+                    </span>
+                {% endif %}
+
+            </div>
+
+
+            <!-- SHORT DESCRIPTION -->
+            {% if product.short_description %}
+                <p class="makeup-detail-short-description">
+                    {{ product.short_description }}
+                </p>
+            {% endif %}
+
+
+            <!-- PRODUCT INFORMATION -->
+            <div class="makeup-info-grid">
+
+                {% if product.color %}
+                <div class="makeup-info-item">
+                    <span>Color</span>
+                    <strong>{{ product.color }}</strong>
+                </div>
+                {% endif %}
+
+
+                {% if product.size %}
+                <div class="makeup-info-item">
+                    <span>Size</span>
+                    <strong>{{ product.size }}</strong>
+                </div>
+                {% endif %}
+
+
+                {% if product.gender %}
+                <div class="makeup-info-item">
+                    <span>For</span>
+                    <strong>{{ product.gender }}</strong>
+                </div>
+                {% endif %}
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            {% if product.description %}
+            <div class="makeup-description">
+
+                <h3>
+                    Product Description
+                </h3>
+
+                <p>
+                    {{ product.description }}
+                </p>
+
+            </div>
+            {% endif %}
+
+
+            <!-- AVAILABILITY -->
+            <div class="makeup-availability">
+
+                {% if product.available %}
+                    <span class="makeup-in-stock">
+                        ● In Stock
+                    </span>
+                {% else %}
+                    <span class="makeup-out-stock">
+                        ● Out of Stock
+                    </span>
+                {% endif %}
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="makeup-detail-actions">
+
+                {% if product.available %}
+
+                    <a href="{% url 'add_to_cart' product.id %}"
+                       class="makeup-cart-btn">
+                        🛒 Add to Cart
+                    </a>
+
+                    <a href="{% url 'buy_now' 'product' product.id %}"
+                       class="makeup-buy-btn">
+                        Buy Now
+                    </a>
+
+                {% else %}
+
+                    <button class="makeup-disabled-btn"
+                            disabled>
+                        Out of Stock
+                    </button>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- META -->
+            <div class="makeup-meta">
+
+                <span>
+                    ✓ Genuine Product
+                </span>
+
+                <span>
+                    ✓ Secure Shopping
+                </span>
+
+                <span>
+                    ✓ Easy Returns
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} making a page electorncie code in start here {% endcomment %}
+{% if product and product.category and product.category.name|lower == 'electronics' %}
+
+<section class="electronics-detail-section">
+
+<div class="container">
+
+    <!-- BREADCRUMB -->
+    <div class="electronics-breadcrumb">
+        <a href="{% url 'home' %}">Home</a>
+        <span>/</span>
+        <a href="{% url 'electronics' %}">Electronics</a>
+        <span>/</span>
+        <span>{{ product.name }}</span>
+    </div>
+
+
+    <!-- PRODUCT DETAIL -->
+    <div class="electronics-detail-card">
+
+        <!-- PRODUCT IMAGE -->
+        <div class="electronics-detail-image">
+
+            <div class="electronics-image-frame">
+
+                {% if product.image %}
+
+                    <img src="{{ product.image.url }}"
+                         alt="{{ product.name }}">
+
+                {% else %}
+
+                    <div class="electronics-no-image">
+                        <span>⚡</span>
+                        No Image Available
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            {% if product.old_price %}
+                <span class="electronics-detail-sale">
+                    SALE
+                </span>
+            {% endif %}
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+        <div class="electronics-detail-info">
+
+            <span class="electronics-detail-label">
+                SMART TECHNOLOGY
+            </span>
+
+
+            <h1>
+                {{ product.name }}
+            </h1>
+
+
+            <div class="electronics-detail-category">
+                Electronics
+            </div>
+
+
+            <!-- RATING -->
+            <div class="electronics-detail-rating">
+
+                <span class="electronics-stars">
+                    ★★★★★
+                </span>
+
+                <span>
+                    4.8
+                </span>
+
+                <span class="electronics-review-text">
+                    Trusted Product
+                </span>
+
+            </div>
+
+
+            <!-- PRICE -->
+            <div class="electronics-detail-price">
+
+                <span class="electronics-price">
+                    ₹{{ product.price }}
+                </span>
+
+                {% if product.old_price %}
+
+                    <span class="electronics-old-price">
+                        ₹{{ product.old_price }}
+                    </span>
+
+                    <span class="electronics-offer">
+                        SPECIAL OFFER
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- SHORT DESCRIPTION -->
+            {% if product.short_description %}
+
+                <p class="electronics-detail-short-description">
+                    {{ product.short_description }}
+                </p>
+
+            {% endif %}
+
+
+            <!-- PRODUCT INFORMATION -->
+            <div class="electronics-info-grid">
+
+                {% if product.color %}
+
+                <div class="electronics-info-item">
+
+                    <span>Color</span>
+
+                    <strong>
+                        {{ product.color }}
+                    </strong>
+
+                </div>
+
+                {% endif %}
+
+
+                {% if product.size %}
+
+                <div class="electronics-info-item">
+
+                    <span>Size</span>
+
+                    <strong>
+                        {{ product.size }}
+                    </strong>
+
+                </div>
+
+                {% endif %}
+
+
+                {% if product.gender %}
+
+                <div class="electronics-info-item">
+
+                    <span>For</span>
+
+                    <strong>
+                        {{ product.gender }}
+                    </strong>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            {% if product.description %}
+
+            <div class="electronics-description">
+
+                <h3>
+                    Product Description
+                </h3>
+
+                <p>
+                    {{ product.description }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- AVAILABILITY -->
+            <div class="electronics-availability">
+
+                {% if product.available %}
+
+                    <span class="electronics-in-stock">
+                        ● In Stock
+                    </span>
+
+                {% else %}
+
+                    <span class="electronics-out-stock">
+                        ● Out of Stock
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="electronics-detail-actions">
+
+                {% if product.available %}
+
+                    <a href="{% url 'add_to_cart' product.id %}"
+                       class="electronics-cart-btn">
+
+                        🛒 Add to Cart
+
+                    </a>
+
+
+                    <a href="{% url 'buy_now' 'product' product.id %}"
+                       class="electronics-buy-btn">
+
+                        ⚡ Buy Now
+
+                    </a>
+
+                {% else %}
+
+                    <button class="electronics-disabled-btn"
+                            disabled>
+
+                        Out of Stock
+
+                    </button>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- META -->
+            <div class="electronics-meta">
+
+                <span>
+                    ✓ Genuine Product
+                </span>
+
+                <span>
+                    ✓ Secure Payment
+                </span>
+
+                <span>
+                    ✓ Easy Returns
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+{% endif %}
+
+
+
+
+{% comment %} watchs.html page start here {% endcomment %}
+{% if product and product.category and product.category.name|lower == 'watches' %}
+
+<section class="watches-detail-section">
+
+    <div class="container">
+
+        <!-- BREADCRUMB -->
+        <div class="watches-breadcrumb">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <span>›</span>
+
+            <a href="{% url 'watches' %}">
+                Watches
+            </a>
+
+            <span>›</span>
+
+            <span>
+                {{ product.name }}
+            </span>
+
+        </div>
+
+
+        <!-- MAIN PRODUCT -->
+        <div class="watches-main-card">
+
+            <!-- PRODUCT IMAGE -->
+            <div class="watches-image-area">
+
+                <div class="watches-image-box">
+
+                    {% if product.image %}
+
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                        >
+
+                    {% else %}
+
+                        <div class="watches-no-image">
+                            <i class="bi bi-watch"></i>
+                            <span>No Image Available</span>
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if product.old_price %}
+
+                        <span class="watches-sale-badge">
+                            SALE
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="watches-image-note">
+
+                    <i class="bi bi-zoom-in"></i>
+
+                    View Product Image
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+            <div class="watches-product-info">
+
+                <span class="watches-category-label">
+                    WATCHES
+                </span>
+
+
+                <h1 class="watches-product-title">
+                    {{ product.name }}
+                </h1>
+
+
+                <!-- RATING -->
+                <div class="watches-rating-row">
+
+                    <span class="watches-rating">
+
+                        4.8
+
+                        <i class="bi bi-star-fill"></i>
+
+                    </span>
+
+                    <span class="watches-review-count">
+
+                        124 Ratings & 28 Reviews
+
+                    </span>
+
+                </div>
+
+
+                <!-- SHORT DESCRIPTION -->
+                {% if product.short_description %}
+
+                <p class="watches-short-description">
+
+                    {{ product.short_description }}
+
+                </p>
+
+                {% endif %}
+
+
+                <!-- PRICE -->
+                <div class="watches-price-box">
+
+                    <span class="watches-current-price">
+
+                        ₹{{ product.price }}
+
+                    </span>
+
+
+                    {% if product.old_price %}
+
+                    <del class="watches-old-price">
+
+                        ₹{{ product.old_price }}
+
+                    </del>
+
+
+                    <span class="watches-discount">
+
+                        {{ product.discount_percentage }}% OFF
+
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <p class="watches-tax-text">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Inclusive of all taxes
+
+                </p>
+
+
+                <!-- PRODUCT DETAILS -->
+                {% if product.color or product.size or product.gender %}
+
+                <div class="watches-options">
+
+                    <h3>
+                        Product Details
+                    </h3>
+
+
+                    {% if product.color %}
+
+                    <div class="watches-option-row">
+
+                        <span>
+                            Color
+                        </span>
+
+                        <strong>
+                            {{ product.color }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if product.size %}
+
+                    <div class="watches-option-row">
+
+                        <span>
+                            Size
+                        </span>
+
+                        <strong>
+                            {{ product.size }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if product.gender %}
+
+                    <div class="watches-option-row">
+
+                        <span>
+                            Suitable For
+                        </span>
+
+                        <strong>
+                            {{ product.gender }}
+                        </strong>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- DELIVERY -->
+                <div class="watches-delivery">
+
+                    <div class="watches-delivery-title">
+
+                        <i class="bi bi-truck"></i>
+
+                        Delivery & Services
+
+                    </div>
+
+
+                    <div class="watches-delivery-item">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Fast & Reliable Delivery
+                        </span>
+
+                    </div>
+
+
+                    <div class="watches-delivery-item">
+
+                        <i class="bi bi-arrow-repeat"></i>
+
+                        <span>
+                            Easy Return & Replacement
+                        </span>
+
+                    </div>
+
+
+                    <div class="watches-delivery-item">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <span>
+                            Quality Checked Product
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="watches-action-buttons">
+
+                    {% if product.available %}
+
+                    <a
+                        href="{% url 'add_to_cart' product.id %}"
+                        class="watches-add-cart-btn"
+                    >
+
+                        <i class="bi bi-cart3"></i>
+
+                        Add to Cart
+
+                    </a>
+
+
+                    <a
+                        href="{% url 'buy_now' 'product' product.id %}"
+                        class="watches-buy-now-btn"
+                    >
+
+                        <i class="bi bi-lightning-fill"></i>
+
+                        Buy Now
+
+                    </a>
+
+                    {% else %}
+
+                    <button
+                        class="watches-out-btn"
+                        disabled
+                    >
+
+                        Out of Stock
+
+                    </button>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HIGHLIGHTS -->
+        <div class="watches-highlights-card">
+
+            <div class="watches-section-heading">
+
+                <span>
+                    WHY YOU'LL LOVE IT
+                </span>
+
+                <h2>
+                    Watch Highlights
+                </h2>
+
+            </div>
+
+
+            <div class="watches-highlights-grid">
+
+                <div class="watches-highlight">
+
+                    <div class="watches-highlight-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Premium Design
+                        </h3>
+
+                        <p>
+                            Stylish design suitable for everyday wear.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="watches-highlight">
+
+                    <div class="watches-highlight-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Accurate Time
+                        </h3>
+
+                        <p>
+                            Designed for reliable everyday timekeeping.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="watches-highlight">
+
+                    <div class="watches-highlight-icon">
+                        <i class="bi bi-gem"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Elegant Look
+                        </h3>
+
+                        <p>
+                            Complements both casual and formal outfits.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="watches-highlight">
+
+                    <div class="watches-highlight-icon">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Comfortable Wear
+                        </h3>
+
+                        <p>
+                            Comfortable design for regular use.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+        <div class="watches-description-card">
+
+            <div class="watches-section-heading">
+
+                <span>
+                    PRODUCT INFORMATION
+                </span>
+
+                <h2>
+                    About This Product
+                </h2>
+
+            </div>
+
+
+            <div class="watches-description-content">
+
+                {% if product.description %}
+
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Discover a stylish and elegant watch designed
+                        for everyday comfort and modern fashion.
+                        Its attractive design makes it suitable for
+                        casual outings, office wear and special occasions.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- STOCK -->
+        <div class="watches-stock-card">
+
+            <div class="watches-stock-icon">
+
+                {% if product.available %}
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                {% else %}
+
+                    <i class="bi bi-x-circle-fill"></i>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="watches-stock-content">
+
+                {% if product.available %}
+
+                    <h3>
+                        Available for Order
+                    </h3>
+
+                    <p>
+                        This watch is currently available.
+                        Add it to your cart and continue shopping.
+                    </p>
+
+                {% else %}
+
+                    <h3>
+                        Currently Out of Stock
+                    </h3>
+
+                    <p>
+                        This product is currently unavailable.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- RELATED WATCHES -->
+        {% if related_watches %}
+
+        <div class="watches-related-section">
+
+            <div class="watches-section-heading">
+
+                <span>
+                    YOU MAY ALSO LIKE
+                </span>
+
+                <h2>
+                    More Watches
+                </h2>
+
+            </div>
+
+
+            <div class="watches-related-grid">
+
+                {% for item in related_watches %}
+
+                <div class="watches-related-card">
+
+                    <a href="{% url 'product_detail' item.id %}">
+
+                        <div class="watches-related-image">
+
+                            {% if item.image %}
+
+                                <img
+                                    src="{{ item.image.url }}"
+                                    alt="{{ item.name }}"
+                                >
+
+                            {% else %}
+
+                                <div class="watches-no-image">
+                                    No Image
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </a>
+
+
+                    <div class="watches-related-info">
+
+                        <span>
+                            Watches
+                        </span>
+
+                        <h3>
+                            {{ item.name }}
+                        </h3>
+
+
+                        <div class="watches-related-price">
+
+                            ₹{{ item.price }}
+
+                            {% if item.old_price %}
+
+                                <del>
+                                    ₹{{ item.old_price }}
+                                </del>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'product_detail' item.id %}"
+                            class="watches-related-btn"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+product
+
+
+
+
+
+
+
+
+
+
+{% comment %} Accresscires.html page start here {% endcomment %}
+
+{% if product.category.name|lower == 'accessories' %}
+
+ <section class="accessories-detail-section">
+
+    <div class="container">
+
+        <!-- BREADCRUMB -->
+        <div class="accessories-breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span>/</span>
+            <a href="{% url 'accessories' %}">Accessories</a>
+            <span>/</span>
+            <span>{{ product.name }}</span>
+        </div>
+
+        <!-- PRODUCT DETAIL -->
+        <div class="accessories-detail-card">
+
+            <!-- IMAGE -->
+            <div class="accessories-detail-image">
+
+                {% if product.image %}
+                    <img src="{{ product.image.url }}"
+                         alt="{{ product.name }}">
+                {% else %}
+                    <div class="accessories-no-image">
+                        No Image Available
+                    </div>
+                {% endif %}
+
+                {% if product.old_price %}
+                    <span class="accessories-detail-sale">
+                        SALE
+                    </span>
+                {% endif %}
+
+            </div>
+
+            <!-- PRODUCT INFORMATION -->
+            <div class="accessories-detail-info">
+
+                <span class="accessories-detail-label">
+                    ACCESSORIES COLLECTION
+                </span>
+
+                <h1>{{ product.name }}</h1>
+
+                <div class="accessories-detail-category">
+                    Accessories
+                </div>
+
+                <!-- RATING -->
+                <div class="accessories-detail-rating">
+                    <span class="accessories-stars">
+                        ★★★★★
+                    </span>
+                    <span>4.8</span>
+                </div>
+
+                <!-- PRICE -->
+                <div class="accessories-detail-price">
+
+                    <span class="accessories-price">
+                        ₹{{ product.price }}
+                    </span>
+
+                    {% if product.old_price %}
+                        <span class="accessories-old-price">
+                            ₹{{ product.old_price }}
+                        </span>
+                    {% endif %}
+
+                </div>
+
+                <!-- SHORT DESCRIPTION -->
+                {% if product.short_description %}
+                    <p class="accessories-detail-short-description">
+                        {{ product.short_description }}
+                    </p>
+                {% endif %}
+
+                <!-- PRODUCT INFORMATION -->
+                <div class="accessories-info-grid">
+
+                    {% if product.color %}
+                        <div class="accessories-info-item">
+                            <span>Color</span>
+                            <strong>{{ product.color }}</strong>
+                        </div>
+                    {% endif %}
+
+                    {% if product.size %}
+                        <div class="accessories-info-item">
+                            <span>Size</span>
+                            <strong>{{ product.size }}</strong>
+                        </div>
+                    {% endif %}
+
+                    {% if product.gender %}
+                        <div class="accessories-info-item">
+                            <span>For</span>
+                            <strong>{{ product.gender }}</strong>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <!-- DESCRIPTION -->
+                {% if product.description %}
+                    <div class="accessories-description">
+                        <h3>Product Description</h3>
+                        <p>{{ product.description }}</p>
+                    </div>
+                {% endif %}
+
+                <!-- AVAILABILITY -->
+                <div class="accessories-availability">
+
+                    {% if product.available %}
+                        <span class="accessories-in-stock">
+                            ● In Stock
+                        </span>
+                    {% else %}
+                        <span class="accessories-out-stock">
+                            ● Out of Stock
+                        </span>
+                    {% endif %}
+
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="accessories-detail-actions">
+
+                    {% if product.available %}
+
+                        <a href="{% url 'add_to_cart' product.id %}"
+                           class="accessories-cart-btn">
+                            🛒 Add to Cart
+                        </a>
+
+                        <a href="{% url 'buy_now' 'product' product.id %}"
+                           class="accessories-buy-btn">
+                            Buy Now
+                        </a>
+
+                    {% else %}
+
+                        <button class="accessories-disabled-btn"
+                                disabled>
+                            Out of Stock
+                        </button>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- META -->
+                <div class="accessories-meta">
+                    <span>✓ Genuine Product</span>
+                    <span>✓ Secure Shopping</span>
+                    <span>✓ Easy Returns</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+{% endblock %}

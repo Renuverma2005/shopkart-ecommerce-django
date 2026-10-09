@@ -1,0 +1,430 @@
+
+{% extends 'base.html' %}
+
+{% block title %}ShopKart | Home{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero-section">
+
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <!-- Hero Content -->
+            <div class="col-lg-6">
+
+                <span class="hero-small-title">
+                    ✦ NEW SEASON COLLECTION
+                </span>
+
+                <h1>
+                    Discover Your
+                    <span>Perfect Style.</span>
+                </h1>
+
+                <p>
+                    Explore premium products, exclusive deals and
+                    everything you need — all in one place.
+                </p>
+
+             
+
+                <!-- Mini Stats -->
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>10K+</strong>
+                        <small>Products</small>
+                    </div>
+
+                    <div>
+                        <strong>5K+</strong>
+                        <small>Customers</small>
+                    </div>
+
+                    <div>
+                        <strong>4.9</strong>
+                        <small>Rating ⭐</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+            <div class="col-lg-6">
+
+                <div class="hero-visual">
+
+                    <div class="floating-card card-one">
+                        <i class="bi bi-truck"></i>
+                        <div>
+                            <strong>Free Delivery</strong>
+                            <small>On selected orders</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-circle">
+
+                        <div class="hero-circle-inner">
+                            <i class="bi bi-bag-heart"></i>
+                            <span>SHOP</span>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <i class="bi bi-percent"></i>
+                        <div>
+                            <strong>Special Offers</strong>
+                            <small>Save more today</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories-section" id="categories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>EXPLORE COLLECTION</span>
+
+            <h2>Shop by Category</h2>
+
+            <p>
+                Find exactly what you're looking for
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for category in categories %}
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <a href="#" class="category-card">
+
+                    <div class="category-image">
+
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}"
+                                 alt="{{ category.name }}">
+                        {% else %}
+                            <div class="category-placeholder">
+                                <i class="bi bi-grid"></i>
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="category-content">
+
+                        <h4>{{ category.name }}</h4>
+
+                        <span>
+                            Explore
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+                <div class="empty-box">
+                    <i class="bi bi-box-seam"></i>
+                    <h4>No Categories Yet</h4>
+                    <p>Add categories from Django Admin.</p>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section" id="products">
+
+    <div class="container">
+
+        <div class="section-heading product-heading">
+
+            <div>
+                <span>OUR COLLECTION</span>
+                <h2>Trending Products</h2>
+            </div>
+
+
+
+           
+            <a href="#" class="view-all">
+                View All
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for product in products %}
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="product-card">
+
+                    <!-- Image -->
+                    <div class="product-image">
+
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}"
+                                 alt="{{ product.name }}">
+                        {% else %}
+                            <div class="product-placeholder">
+                                <i class="bi bi-image"></i>
+                            </div>
+                        {% endif %}
+
+                        {% if product.old_price %}
+
+                        <span class="discount-badge">
+                            SALE
+                        </span>
+
+                        {% endif %}
+
+
+                        <!-- Wishlist -->
+                        <a href=""
+                           class="wishlist-btn">
+                            <i class="bi bi-heart"></i>
+                        </a>
+
+                        <!-- Quick View -->
+                        <a href="{% url 'product_detail' product.id %}"
+                           class="quick-view">
+                            <i class="bi bi-eye"></i>
+                            Quick View
+                        </a>
+
+                    </div>
+
+
+                    <!-- Product Info -->
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            {{ product.category.name }}
+                        </span>
+
+                        <h3>
+                            {{ product.name }}
+                        </h3>
+
+                        <p>
+                            {{ product.description|truncatechars:70 }}
+                        </p>
+
+
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span>(4.8)</span>
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+
+                                <strong>
+                                    ₹{{ product.price }}
+                                </strong>
+
+                                {% if product.old_price %}
+                                <del>
+                                    ₹{{ product.old_price }}
+                                </del>
+                                {% endif %}
+
+                            </div>
+
+
+                            <a href="{% url 'add_to_cart' product.id %}"
+                               class="add-cart-btn">
+
+                                <i class="bi bi-cart-plus"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="empty-box">
+
+                    <i class="bi bi-bag-x"></i>
+
+                    <h4>No Products Available</h4>
+
+                    <p>
+                        Add products from Django Admin.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY SHOP WITH US ================= -->
+
+<section class="benefits-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>WHY SHOPKART?</span>
+
+            <h2>Shopping Made Simple</h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+
+                    <h4>Fast Delivery</h4>
+
+                    <p>
+                        Quick and reliable delivery right to your door.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <h4>Secure Payment</h4>
+
+                    <p>
+                        Your payments and information stay protected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <h4>Easy Returns</h4>
+
+                    <p>
+                        Simple and hassle-free return experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="benefit-card">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+
+                    <h4>24/7 Support</h4>
+
+                    <p>
+                        We're always here whenever you need help.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

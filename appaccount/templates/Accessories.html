@@ -1,0 +1,177 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Accessories | ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="accessories-page">
+
+    <div class="container">
+
+        <!-- PAGE HEADER -->
+        <div class="accessories-page-header">
+
+            <div>
+                <span class="accessories-subtitle">
+                    ACCESSORIES COLLECTION
+                </span>
+
+                <h1>
+                    Accessories
+                </h1>
+
+                <p>
+                    Discover stylish accessories for your everyday look
+                </p>
+            </div>
+
+            <div class="accessories-count">
+                {{ accessories_products|length }} Products
+            </div>
+
+        </div>
+
+        <!-- PRODUCT GRID -->
+        {% if accessories_products %}
+
+        <div class="accessories-product-grid">
+
+            {% for product in accessories_products %}
+
+            <div class="accessories-product-card">
+
+                <!-- PRODUCT IMAGE -->
+                <div class="accessories-product-image">
+
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}"
+                             alt="{{ product.name }}">
+                    {% else %}
+                        <div class="accessories-no-image">
+                            No Image
+                        </div>
+                    {% endif %}
+
+                    <!-- SALE -->
+                    {% if product.old_price %}
+                        <span class="accessories-sale-badge">
+                            SALE
+                        </span>
+                    {% endif %}
+
+                    <!-- AVAILABILITY -->
+                    {% if not product.available %}
+                        <span class="accessories-stock-badge">
+                            OUT OF STOCK
+                        </span>
+                    {% endif %}
+
+                </div>
+
+                <!-- PRODUCT INFORMATION -->
+                <div class="accessories-product-info">
+
+                    <span class="accessories-product-category">
+                        {{ product.category.name }}
+                    </span>
+
+                    <h2>
+                        {{ product.name }}
+                    </h2>
+
+                    <!-- RATING -->
+                    <div class="accessories-product-rating">
+                        <span>★★★★★</span>
+                        <small>4.8</small>
+                    </div>
+
+                    <!-- SHORT DESCRIPTION -->
+                    {% if product.short_description %}
+                        <p class="accessories-short-description">
+                            {{ product.short_description }}
+                        </p>
+                    {% endif %}
+
+                    <!-- PRICE -->
+                    <div class="accessories-product-price">
+
+                        <strong>
+                            ₹{{ product.price }}
+                        </strong>
+
+                        {% if product.old_price %}
+                            <del>
+                                ₹{{ product.old_price }}
+                            </del>
+                        {% endif %}
+
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="accessories-product-actions">
+
+                        <a href="{% url 'product_detail' product.id %}"
+                           class="accessories-view-btn">
+                            View Details
+                        </a>
+
+                        {% if product.available %}
+
+                            <a href="{% url 'add_to_cart' product.id %}"
+                               class="accessories-cart-btn-small">
+                                🛒
+                            </a>
+
+                        {% else %}
+
+                            <button class="accessories-disabled-small"
+                                    disabled>
+                                Out
+                            </button>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <!-- EMPTY STATE -->
+        <div class="accessories-empty">
+
+            <div class="accessories-empty-icon">
+                👜
+            </div>
+
+            <h2>
+                No Accessories Products Found
+            </h2>
+
+            <p>
+                Accessories products will appear here once they are added from the admin panel.
+            </p>
+
+            <a href="{% url 'home' %}">
+                Continue Shopping
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

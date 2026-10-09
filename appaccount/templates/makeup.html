@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Makeup | ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="makeup-page">
+
+<div class="container">
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <div class="makeup-page-header">
+
+        <div>
+            <span class="makeup-subtitle">
+                BEAUTY COLLECTION
+            </span>
+
+            <h1>
+                Makeup
+            </h1>
+
+            <p>
+                Discover your perfect beauty essentials
+            </p>
+        </div>
+
+        <div class="makeup-count">
+            {{ makeup_products|length }} Products
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PRODUCT GRID
+    ========================== -->
+
+    {% if makeup_products %}
+
+    <div class="makeup-product-grid">
+
+        {% for product in makeup_products %}
+
+        <div class="makeup-product-card">
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="makeup-product-image">
+
+                {% if product.image %}
+
+                    <img src="{{ product.image.url }}"
+                         alt="{{ product.name }}">
+
+                {% else %}
+
+                    <div class="makeup-no-image">
+                        No Image
+                    </div>
+
+                {% endif %}
+
+
+                <!-- SALE -->
+
+                {% if product.old_price %}
+
+                    <span class="makeup-sale-badge">
+                        SALE
+                    </span>
+
+                {% endif %}
+
+
+                <!-- AVAILABILITY -->
+
+                {% if not product.available %}
+
+                    <span class="makeup-stock-badge">
+                        OUT OF STOCK
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="makeup-product-info">
+
+                <span class="makeup-product-category">
+                    {{ product.category.name }}
+                </span>
+
+                <h2>
+                    {{ product.name }}
+                </h2>
+
+
+                <!-- RATING -->
+
+                <div class="makeup-product-rating">
+
+                    <span>
+                        ★★★★★
+                    </span>
+
+                    <small>
+                        4.8
+                    </small>
+
+                </div>
+
+
+                <!-- SHORT DESCRIPTION -->
+
+                {% if product.short_description %}
+
+                    <p class="makeup-short-description">
+                        {{ product.short_description }}
+                    </p>
+
+                {% endif %}
+
+
+                <!-- PRICE -->
+
+                <div class="makeup-product-price">
+
+                    <strong>
+                        ₹{{ product.price }}
+                    </strong>
+
+                    {% if product.old_price %}
+
+                        <del>
+                            ₹{{ product.old_price }}
+                        </del>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="makeup-product-actions">
+
+                    <a href="{% url 'product_detail' product.id %}"
+                       class="makeup-view-btn">
+
+                        View Details
+
+                    </a>
+
+
+                    {% if product.available %}
+
+                        <a href="{% url 'add_to_cart' product.id %}"
+                           class="makeup-cart-btn-small">
+
+                            🛒
+
+                        </a>
+
+                    {% else %}
+
+                        <button class="makeup-disabled-small"
+                                disabled>
+
+                            Out
+
+                        </button>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <!-- =========================
+         EMPTY STATE
+    ========================== -->
+
+    <div class="makeup-empty">
+
+        <div class="makeup-empty-icon">
+            💄
+        </div>
+
+        <h2>
+            No Makeup Products Found
+        </h2>
+
+        <p>
+            Makeup products will appear here once they are added from the admin panel.
+        </p>
+
+        <a href="{% url 'home' %}">
+            Continue Shopping
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+</section>
+
+{% endblock %}

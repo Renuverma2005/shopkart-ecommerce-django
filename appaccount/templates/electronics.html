@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+Electronics | ShopKart
+
+{% endblock %}
+
+{% block content %}
+
+<section class="electronics-page">
+
+<div class="container">
+
+
+<!-- =========================
+     PAGE HEADER
+========================== -->
+
+<div class="electronics-page-header">
+
+    <div>
+
+        <span class="electronics-subtitle">
+            SMART TECHNOLOGY COLLECTION
+        </span>
+
+        <h1>
+            Electronics
+        </h1>
+
+        <p>
+            Discover smart technology and modern electronic essentials
+        </p>
+
+    </div>
+
+    <div class="electronics-count">
+        {{ electronics_products|length }} Products
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PRODUCT GRID
+========================== -->
+
+{% if electronics_products %}
+
+<div class="electronics-product-grid">
+
+    {% for product in electronics_products %}
+
+    <div class="electronics-product-card">
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="electronics-product-image">
+
+            {% if product.image %}
+
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.name }}">
+
+            {% else %}
+
+                <div class="electronics-no-image">
+                    No Image
+                </div>
+
+            {% endif %}
+
+
+            <!-- SALE -->
+
+            {% if product.old_price %}
+
+                <span class="electronics-sale-badge">
+                    SALE
+                </span>
+
+            {% endif %}
+
+
+            <!-- AVAILABILITY -->
+
+            {% if not product.available %}
+
+                <span class="electronics-stock-badge">
+                    OUT OF STOCK
+                </span>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="electronics-product-info">
+
+            <span class="electronics-product-category">
+
+                {{ product.category.name }}
+
+            </span>
+
+
+            <h2>
+
+                {{ product.name }}
+
+            </h2>
+
+
+            <!-- RATING -->
+
+            <div class="electronics-product-rating">
+
+                <span>
+                    ★★★★★
+                </span>
+
+                <small>
+                    4.8
+                </small>
+
+            </div>
+
+
+            <!-- SHORT DESCRIPTION -->
+
+            {% if product.short_description %}
+
+                <p class="electronics-short-description">
+
+                    {{ product.short_description }}
+
+                </p>
+
+            {% endif %}
+
+
+            <!-- PRICE -->
+
+            <div class="electronics-product-price">
+
+                <strong>
+
+                    ₹{{ product.price }}
+
+                </strong>
+
+
+                {% if product.old_price %}
+
+                    <del>
+
+                        ₹{{ product.old_price }}
+
+                    </del>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="electronics-product-actions">
+
+                <a href="{% url 'product_detail' product.id %}"
+                   class="electronics-view-btn">
+
+                    View Details
+
+                </a>
+
+
+                {% if product.available %}
+
+                    <a href="{% url 'add_to_cart' product.id %}"
+                       class="electronics-cart-btn-small">
+
+                        🛒
+
+                    </a>
+
+                {% else %}
+
+                    <button class="electronics-disabled-small"
+                            disabled>
+
+                        Out
+
+                    </button>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% else %}
+
+
+<!-- =========================
+     EMPTY STATE
+========================== -->
+
+<div class="electronics-empty">
+
+    <div class="electronics-empty-icon">
+        ⚡
+    </div>
+
+    <h2>
+        No Electronics Products Found
+    </h2>
+
+    <p>
+        Electronics products will appear here once they are added from the admin panel.
+    </p>
+
+    <a href="{% url 'home' %}">
+        Continue Shopping
+    </a>
+
+</div>
+
+{% endif %}
+
+
+</div>
+
+</section>
+
+{% endblock %}

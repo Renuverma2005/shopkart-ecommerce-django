@@ -1,0 +1,1299 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+            ShopKart
+        {% endblock %}
+    </title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP CSS
+    ====================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+  
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg shop-navbar sticky-top">
+
+    <div class="container">
+
+
+        <!-- =================================================
+             SHOPKART LOGO
+        ================================================== -->
+
+        <a
+            class="navbar-brand shop-logo"
+            href="{% url 'home' %}"
+        >
+            <span>Shop</span>Kart
+        </a>
+
+
+        <!-- =================================================
+             MOBILE MENU BUTTON
+        ================================================== -->
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <i class="bi bi-list"></i>
+        </button>
+
+
+        <!-- =================================================
+             NAVBAR COLLAPSE
+        ================================================== -->
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar"
+        >
+
+
+            <!-- =================================================
+                 SEARCH FORM
+            ================================================== -->
+
+            <form
+                action="{% url 'search_products' %}"
+                method="GET"
+                class="shop-search-form"
+                id="shopSearchForm"
+            >
+
+                <div class="search-input-wrapper">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+
+                    <input
+                        type="search"
+                        name="q"
+                        id="shopSearchInput"
+                        placeholder="Search products, categories..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="search-clear"
+                        id="searchClear"
+                    >
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     LIVE SEARCH SUGGESTIONS
+                ================================================== -->
+
+                <div
+                    class="search-suggestions"
+                    id="searchSuggestions"
+                >
+
+                    <div class="search-suggestion-loading">
+                        Searching...
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <!-- =================================================
+                 NAVIGATION MENU
+            ================================================== -->
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <!-- =================================================
+                     HOME
+                ================================================== -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{% url 'home' %}"
+                    >
+
+                        <i class="bi bi-house"></i>
+
+                        <span>
+                            Home
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     CATEGORIES
+                ================================================== -->
+
+                <li class="nav-item dropdown category-menu">
+
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="{% url 'categories' %}"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Categories
+                        </span>
+
+                    </a>
+
+
+                    <!-- CATEGORY DROPDOWN -->
+
+                    <ul class="dropdown-menu category-dropdown-menu">
+
+
+                        
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                <a href="{% url 'shoes' %}" 
+
+
+                                <span class="category-emoji">
+                                    👟
+                                </span>
+
+                                <span>
+                                    Shoes
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="{% url 'makeup' %}"
+                            >
+
+                                <span class="category-emoji">
+                                    💄
+                                </span>
+
+                                <span>
+                                    Makeup
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="{% url 'electronics' %}"
+                            >
+
+                                <span class="category-emoji">
+                                    📱
+                                </span>
+
+                                <span>
+                                    Electronics
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="{% url 'watches' %}"
+                            >
+
+                                <span class="category-emoji">
+                                    ⌚
+                                </span>
+
+                                <span>
+                                    Watches
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="{% url 'accessories' %}"
+                            >
+
+                                <span class="category-emoji">
+                                    🎒
+                                </span>
+
+                                <span>
+                                    Accessories
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="{% url 'home' %}"
+                            >
+
+                                <span class="category-emoji">
+                                    🏠
+                                </span>
+
+                                <span>
+                                    Home & Living
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <hr class="dropdown-divider">
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item view-all-category"
+                                href="{% url 'categories' %}"
+                            >
+
+                                <span>
+
+                                    <i class="bi bi-grid-3x3-gap"></i>
+
+                                    View All Categories
+
+                                </span>
+
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <!-- =================================================
+                     ABOUT
+                ================================================== -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{% url 'about' %}"
+                    >
+
+                        <i class="bi bi-info-circle"></i>
+
+                        <span>
+                            About
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     CONTACT
+                ================================================== -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{% url 'contact' %}"
+                    >
+
+                        <i class="bi bi-envelope"></i>
+
+                        <span>
+                            Contact
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     WISHLIST
+                ================================================== -->
+
+
+                <!-- =================================================
+                     CART
+                ================================================== -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link nav-icon"
+                        href="{% url 'cart' %}"
+                    >
+
+                        <i class="bi bi-cart3"></i>
+
+                        <span class="icon-text">
+                            Cart
+                        </span>
+
+
+                        <span class="cart-badge">
+                            {{ request.session.cart|length|default:"0" }}
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     ACCOUNT
+                ================================================== -->
+
+                <li class="nav-item dropdown account-menu ms-lg-2">
+
+
+                    <!-- ACCOUNT BUTTON -->
+
+                    <a
+                        class="nav-link account-btn dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+
+                        <i class="bi bi-person-circle"></i>
+
+                        <span>
+                            Account
+                        </span>
+
+                    </a>
+
+
+                    <!-- ACCOUNT DROPDOWN -->
+
+                    <ul
+                        class="dropdown-menu dropdown-menu-end account-dropdown"
+                    >
+
+
+                        {% if user.is_authenticated %}
+
+
+                            <!-- REGISTER -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'register' %}"
+                                >
+
+                                    <i class="bi bi-person-circle"></i>
+
+                                    <span>
+                                        Register
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- LOGIN -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'login' %}"
+                                >
+
+                                    <i class="bi bi-bag-check"></i>
+
+                                    <span>
+                                        Login
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- LOGOUT -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item logout-item"
+                                    href="{% url 'logout' %}"
+                                >
+
+                                    <i class="bi bi-box-arrow-right"></i>
+
+                                    <span>
+                                        Logout
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                        {% else %}
+
+
+                            <!-- LOGIN -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'login' %}"
+                                >
+
+                                    <i class="bi bi-box-arrow-in-right"></i>
+
+                                    <span>
+                                        Login
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- REGISTER -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'register' %}"
+                                >
+
+                                    <i class="bi bi-person-plus"></i>
+
+                                    <span>
+                                        Register
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- SIGN UP -->
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="#"
+                                >
+
+                                    <i class="bi bi-person-add"></i>
+
+                                    <span>
+                                        Sign Up
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                        {% endif %}
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="shop-footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="{% url 'home' %}"
+                        class="footer-logo"
+                    >
+
+                        <span>Shop</span>Kart
+
+                    </a>
+
+
+                    <p>
+                        Your one-stop destination for fashion,
+                        electronics, lifestyle products and
+                        everyday essentials.
+                    </p>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div class="footer-social">
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                    >
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                    >
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="Twitter"
+                    >
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUICK LINKS
+            ================================================== -->
+
+            <div class="col-lg-2 col-md-6">
+
+                <h5>
+                    Quick Links
+                </h5>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Shop
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="{% url 'categories' %}">
+                            Categories
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            About Us
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUSTOMER CARE
+            ================================================== -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>
+                    Customer Care
+                </h5>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="#">
+                            My Orders
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Wishlist
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="{% url 'cart' %}">
+                            Shopping Cart
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTACT
+            ================================================== -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>
+                    Get In Touch
+                </h5>
+
+
+                <div class="footer-contact">
+
+
+                    <p>
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        Lucknow, Uttar Pradesh, India
+
+                    </p>
+
+
+                    <p>
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                        support@shopkart.com
+
+                    </p>
+
+
+                    <p>
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                        +91 98765 43210
+
+                    </p>
+
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="payment-box">
+
+                    <span>
+                        Secure Payments
+                    </span>
+
+
+                    <div class="payment-icons">
+
+                        <i class="bi bi-credit-card"></i>
+
+                        <i class="bi bi-wallet2"></i>
+
+                        <i class="bi bi-cash-coin"></i>
+
+                        <i class="bi bi-shield-check"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+
+            <p>
+
+                © {% now "Y" %}
+
+                <strong>
+                    ShopKart
+                </strong>.
+
+                All Rights Reserved.
+
+            </p>
+
+
+            <p>
+
+                Designed with
+
+                <i class="bi bi-heart-fill"></i>
+
+                for online shoppers.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- =========================================================
+     LIVE SEARCH JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const searchInput =
+        document.getElementById("shopSearchInput");
+
+    const searchForm =
+        document.getElementById("shopSearchForm");
+
+    const suggestions =
+        document.getElementById("searchSuggestions");
+
+    const clearButton =
+        document.getElementById("searchClear");
+
+
+    let searchTimer;
+
+
+    /* =====================================================
+       INPUT EVENT
+    ====================================================== */
+
+    searchInput.addEventListener("input", function () {
+
+        const query = this.value.trim();
+
+        clearTimeout(searchTimer);
+
+
+        if (query.length === 0) {
+
+            suggestions.classList.remove("show");
+
+            clearButton.classList.remove("show");
+
+            return;
+        }
+
+
+        clearButton.classList.add("show");
+
+
+        if (query.length < 2) {
+
+            suggestions.classList.remove("show");
+
+            return;
+        }
+
+
+        searchTimer = setTimeout(function () {
+
+            loadSuggestions(query);
+
+        }, 250);
+
+    });
+
+
+    /* =====================================================
+       LOAD SEARCH SUGGESTIONS
+    ====================================================== */
+
+    function loadSuggestions(query) {
+
+
+        suggestions.innerHTML = `
+
+            <div class="search-suggestion-loading">
+
+                <span class="search-spinner"></span>
+
+                Searching...
+
+            </div>
+
+        `;
+
+
+        suggestions.classList.add("show");
+
+
+        fetch(
+            `{% url 'search_suggestions' %}?q=${encodeURIComponent(query)}`
+        )
+
+        .then(response => response.json())
+
+        .then(data => {
+
+
+            suggestions.innerHTML = "";
+
+
+            /* =============================================
+               NO PRODUCTS
+            ============================================== */
+
+            if (!data.products.length) {
+
+                suggestions.innerHTML = `
+
+                    <div class="search-no-result">
+
+                        <div class="no-result-icon">
+                            🔎
+                        </div>
+
+                        <strong>
+                            No products found
+                        </strong>
+
+                        <span>
+                            Try another search
+                        </span>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            /* =============================================
+               PRODUCT SUGGESTIONS
+            ============================================== */
+
+            data.products.forEach(product => {
+
+
+                const item =
+                    document.createElement("a");
+
+
+                item.href = product.url;
+
+                item.className =
+                    "search-suggestion-item";
+
+
+                let imageHTML;
+
+
+                if (product.image) {
+
+                    imageHTML = `
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
+
+                    `;
+
+                } else {
+
+                    imageHTML = `
+
+                        <div class="suggestion-no-image">
+                            🛍
+                        </div>
+
+                    `;
+
+                }
+
+
+                item.innerHTML = `
+
+                    <div class="suggestion-product-image">
+
+                        ${imageHTML}
+
+                    </div>
+
+
+                    <div class="suggestion-product-info">
+
+                        <strong>
+                            ${product.name}
+                        </strong>
+
+                        <span>
+                            ${product.category}
+                        </span>
+
+                    </div>
+
+
+                    <div class="suggestion-product-price">
+
+                        ₹${product.price}
+
+                    </div>
+
+
+                    <div class="suggestion-arrow">
+
+                        →
+
+                    </div>
+
+                `;
+
+
+                suggestions.appendChild(item);
+
+            });
+
+
+            /* =============================================
+               VIEW ALL RESULTS
+            ============================================== */
+
+            const viewAll =
+                document.createElement("button");
+
+
+            viewAll.type = "submit";
+
+            viewAll.className =
+                "search-view-all";
+
+
+            viewAll.innerHTML = `
+
+                View all results for
+
+                "<strong>${query}</strong>"
+
+                →
+
+            `;
+
+
+            suggestions.appendChild(viewAll);
+
+        })
+
+
+        /* =============================================
+           SEARCH ERROR
+        ============================================== */
+
+        .catch(error => {
+
+            console.error(
+                "Search error:",
+                error
+            );
+
+
+            suggestions.innerHTML = `
+
+                <div class="search-no-result">
+
+                    Something went wrong.
+                    Please try again.
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    /* =====================================================
+       CLEAR SEARCH
+    ====================================================== */
+
+    clearButton.addEventListener("click", function () {
+
+        searchInput.value = "";
+
+        suggestions.classList.remove("show");
+
+        clearButton.classList.remove("show");
+
+        searchInput.focus();
+
+    });
+
+
+    /* =====================================================
+       SEARCH FORM SUBMIT
+    ====================================================== */
+
+    searchForm.addEventListener("submit", function (event) {
+
+        const query =
+            searchInput.value.trim();
+
+
+        if (!query) {
+
+            event.preventDefault();
+
+            searchInput.focus();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CLICK OUTSIDE
+    ====================================================== */
+
+    document.addEventListener("click", function (event) {
+
+        if (!searchForm.contains(event.target)) {
+
+            suggestions.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* =====================================================
+       ESCAPE KEY
+    ====================================================== */
+
+    searchInput.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            suggestions.classList.remove("show");
+
+            searchInput.blur();
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | ShopKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-page">
+
+    <div class="about-hero">
+        <div class="about-hero-content">
+            <span class="about-eyebrow">WELCOME TO SHOPKART</span>
+            <h1>Shopping Made <span>Simple & Special.</span></h1>
+            <p>
+                Discover your everyday favourites in one place.
+                Shop fashion, beauty, electronics, accessories and
+                more with a smooth and convenient shopping experience.
+            </p>
+            <a href="{% url 'home' %}" class="about-primary-btn">
+                Start Shopping <span>→</span>
+            </a>
+        </div>
+
+        <div class="about-hero-art">
+            <div class="about-art-circle"></div>
+            <div class="about-shopping-card">
+                <span class="about-bag-icon">S</span>
+                <h3>ShopKart</h3>
+                <p>Your style. Your choice.</p>
+                <div class="about-art-tags">
+                    <span>Fashion</span>
+                    <span>Beauty</span>
+                    <span>More</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-intro">
+            <span class="about-section-label">WHO WE ARE</span>
+            <h2>A better way to <span>shop online.</span></h2>
+            <p>
+                ShopKart is an online shopping destination designed to
+                make discovering products easy and convenient. Our goal
+                is to bring different product categories together so
+                customers can explore their favourites in one place.
+            </p>
+        </div>
+
+        <div class="about-values">
+
+            <article class="about-value-card">
+                <div class="about-value-icon">◎</div>
+                <h3>Our Mission</h3>
+                <p>
+                    To make online shopping convenient, accessible and
+                    enjoyable by offering an easy-to-use shopping experience.
+                </p>
+            </article>
+
+            <article class="about-value-card">
+                <div class="about-value-icon">✦</div>
+                <h3>Our Vision</h3>
+                <p>
+                    To build a trusted shopping destination where customers
+                    can explore products and shop with confidence.
+                </p>
+            </article>
+
+            <article class="about-value-card">
+                <div class="about-value-icon">♡</div>
+                <h3>Our Promise</h3>
+                <p>
+                    To keep improving the shopping experience with clear
+                    product information and helpful customer support.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="about-why">
+            <div class="about-why-content">
+                <span class="about-section-label">WHY SHOPKART?</span>
+                <h2>Everything you love, <span>in one place.</span></h2>
+                <p>
+                    From daily essentials to personal style, explore
+                    different categories without making shopping complicated.
+                </p>
+
+                <div class="about-benefit">
+                    <span class="about-check">✓</span>
+                    <div>
+                        <h4>Multiple Categories</h4>
+                        <p>Explore fashion, beauty, electronics and more.</p>
+                    </div>
+                </div>
+
+                <div class="about-benefit">
+                    <span class="about-check">✓</span>
+                    <div>
+                        <h4>Easy Browsing</h4>
+                        <p>Find products through category pages and search.</p>
+                    </div>
+                </div>
+
+                <div class="about-benefit">
+                    <span class="about-check">✓</span>
+                    <div>
+                        <h4>Customer Support</h4>
+                        <p>Contact us when you need help or have a question.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-why-panel">
+                <div class="about-panel-top">THE SHOPKART EXPERIENCE</div>
+                <div class="about-panel-symbol">S</div>
+                <h3>Discover more.<br>Choose your way.</h3>
+                <p>Your shopping journey starts here.</p>
+                <a href="{% url 'contact' %}" class="about-panel-link">
+                    Get in Touch →
+                </a>
+            </div>
+        </div>
+
+        <div class="about-cta">
+            <span>READY TO EXPLORE?</span>
+            <h2>Find something you love.</h2>
+            <p>Explore ShopKart and discover products for your everyday needs.</p>
+            <a href="{% url 'home' %}" class="about-primary-btn">
+                Explore ShopKart →
+            </a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Shoes | ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="shoes-page">
+
+    <div class="container">
+
+        <!-- =========================
+             PAGE HEADER
+        ========================== -->
+
+        <div class="shoes-page-header">
+
+            <div>
+                <span class="shoes-subtitle">
+                    PREMIUM FOOTWEAR COLLECTION
+                </span>
+
+                <h1>
+                    Shoes
+                </h1>
+
+                <p>
+                    Discover premium, stylish and comfortable shoes
+                    designed for everyday wear, sports and casual outings.
+                </p>
+            </div>
+
+            <div class="shoes-count">
+                {{ shoes_products|length }} Products
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PRODUCT SECTION
+        ========================== -->
+
+        {% if shoes_products %}
+
+        <div class="shoes-product-grid">
+
+            {% for product in shoes_products %}
+
+            <div class="shoes-product-card">
+
+                <!-- PRODUCT IMAGE -->
+
+                <div class="shoes-product-image">
+
+                    {% if product.image %}
+
+                    <a href="{% url 'product_detail' product.id %}">
+
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                        >
+
+                    </a>
+
+                    {% else %}
+
+                    <div class="shoes-no-image">
+
+                        <i class="bi bi-image"></i>
+
+                        <span>
+                            No Image
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <!-- SALE -->
+
+                    {% if product.old_price and product.old_price > product.price %}
+
+                    <span class="shoes-sale-badge">
+                        SALE
+                    </span>
+
+                    {% endif %}
+
+
+                    <!-- DISCOUNT -->
+
+                    {% if product.old_price and product.old_price > product.price %}
+
+                    <span class="shoes-discount-badge">
+                        {{ product.discount_percentage }}% OFF
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- PRODUCT INFORMATION -->
+
+                <div class="shoes-product-info">
+
+                    <!-- CATEGORY -->
+
+                    <span class="shoes-product-category">
+
+                        {{ product.category.name }}
+
+                        {% if product.subcategory %}
+                            <span>•</span>
+                            {{ product.subcategory.name }}
+                        {% endif %}
+
+                    </span>
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <h2>
+
+                        <a
+                            href="{% url 'product_detail' product.id %}"
+                            class="shoes-product-title"
+                        >
+
+                            {{ product.name }}
+
+                        </a>
+
+                    </h2>
+
+
+                    <!-- RATING -->
+
+                    <div class="shoes-product-rating">
+
+                        <span class="shoes-stars">
+                            ★★★★★
+                        </span>
+
+                        <small>
+                            4.8
+                        </small>
+
+                    </div>
+
+
+                    <!-- SHORT DESCRIPTION -->
+
+                    {% if product.short_description %}
+
+                    <p class="shoes-short-description">
+
+                        {{ product.short_description }}
+
+                    </p>
+
+                    {% endif %}
+
+
+                    <!-- PRICE -->
+
+                    <div class="shoes-product-price">
+
+                        <strong>
+                            ₹{{ product.price }}
+                        </strong>
+
+
+                        {% if product.old_price %}
+
+                        <del>
+                            ₹{{ product.old_price }}
+                        </del>
+
+                        {% endif %}
+
+
+                        {% if product.old_price and product.old_price > product.price %}
+
+                        <span class="shoes-discount">
+
+                            {{ product.discount_percentage }}% OFF
+
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- PRODUCT DETAILS -->
+
+                    <div class="shoes-product-meta">
+
+                        {% if product.color %}
+
+                        <span>
+                            <i class="bi bi-palette"></i>
+                            {{ product.color }}
+                        </span>
+
+                        {% endif %}
+
+
+                        {% if product.size %}
+
+                        <span>
+                            <i class="bi bi-rulers"></i>
+                            {{ product.size }}
+                        </span>
+
+                        {% endif %}
+
+
+                        {% if product.gender %}
+
+                        <span>
+                            <i class="bi bi-person"></i>
+                            {{ product.gender }}
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="shoes-product-actions">
+
+                        <a
+                            href="{% url 'product_detail' product.id %}"
+                            class="shoes-view-btn"
+                        >
+
+                            View Details
+
+                        </a>
+
+
+                        {% if product.available %}
+
+                        <a
+                            href="{% url 'add_to_cart' product.id %}"
+                            class="shoes-cart-btn-small"
+                            title="Add to Cart"
+                        >
+
+                            <i class="bi bi-cart3"></i>
+
+                        </a>
+
+                        {% else %}
+
+                        <button
+                            class="shoes-disabled-small"
+                            disabled
+                        >
+
+                            Out of Stock
+
+                        </button>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <!-- =========================
+             EMPTY STATE
+        ========================== -->
+
+        <div class="shoes-empty">
+
+            <div class="shoes-empty-icon">
+
+                <i class="bi bi-shoe"></i>
+
+            </div>
+
+            <h2>
+                No Shoes Products Found
+            </h2>
+
+            <p>
+                Shoes products will appear here once they
+                are added from the admin panel.
+            </p>
+
+            <a href="{% url 'home' %}">
+                Continue Shopping
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

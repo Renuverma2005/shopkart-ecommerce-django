@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ subcategory.name }} | ShopKart
+{% endblock %}
+
+
+{% block content %}
+
+<section class="subcategory-products-page">
+
+    <div class="subcategory-products-container">
+
+
+        <!-- BREADCRUMB -->
+
+        <div class="shop-breadcrumb">
+
+            <a href="{% url 'categories' %}">
+                Categories
+            </a>
+
+            <i class="bi bi-chevron-right"></i>
+
+            <a href="{% url 'category_products' category.id %}">
+                {{ category.name }}
+            </a>
+
+            <i class="bi bi-chevron-right"></i>
+
+            <span>
+                {{ subcategory.name }}
+            </span>
+
+        </div>
+
+
+        <!-- HEADER -->
+
+        <div class="subcategory-heading">
+
+            <span>
+                {{ category.name|upper }} COLLECTION
+            </span>
+
+            <h1>
+                {{ subcategory.name }}
+            </h1>
+
+            <p>
+                Explore our latest {{ subcategory.name }} collection.
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCT TOP -->
+
+        <div class="subcategory-products-top">
+
+            <div>
+
+                <span>
+                    SHOPKART PRODUCTS
+                </span>
+
+                <h2>
+                    {{ subcategory.name }}
+                </h2>
+
+            </div>
+
+            <strong>
+                {{ products|length }} Products
+            </strong>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="subcategory-product-grid">
+
+            {% for product in products %}
+
+            <article class="subcategory-product-card">
+
+
+                <!-- IMAGE -->
+
+                <a
+                    href="{% url 'product_detail' product.id %}"
+                    class="subcategory-product-image"
+                >
+
+                    {% if product.image %}
+
+                        <img
+                            src="{{ product.image.url }}"
+                            alt="{{ product.name }}"
+                        >
+
+                    {% else %}
+
+                        <div class="product-placeholder">
+                            <i class="bi bi-image"></i>
+                        </div>
+
+                    {% endif %}
+
+                </a>
+
+
+                <!-- DETAILS -->
+
+                <div class="subcategory-product-info">
+
+                    <span class="product-small-category">
+                        {{ subcategory.name }}
+                    </span>
+
+
+                    <h3>
+                        {{ product.name }}
+                    </h3>
+
+
+                    {% if product.short_description %}
+
+                    <p>
+                        {{ product.short_description }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <div class="subcategory-price-row">
+
+                        <strong>
+                            ₹{{ product.price }}
+                        </strong>
+
+                        {% if product.old_price %}
+
+                        <del>
+                            ₹{{ product.old_price }}
+                        </del>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'product_detail' product.id %}"
+                        class="view-product-btn"
+                    >
+
+                        View Product
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <div class="subcategory-empty">
+
+                <i class="bi bi-bag-x"></i>
+
+                <h2>
+                    No {{ subcategory.name }} Products Found
+                </h2>
+
+                <p>
+                    Add products from Django Admin and select
+                    this subcategory.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

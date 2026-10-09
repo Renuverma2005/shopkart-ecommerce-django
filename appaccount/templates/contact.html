@@ -1,0 +1,145 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | ShopKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="contact-page">
+
+    <div class="contact-hero">
+        <span class="contact-eyebrow">WE'RE HERE TO HELP</span>
+        <h1>Let's Talk <span>to ShopKart.</span></h1>
+        <p>
+            Have a question, feedback or need assistance?
+            Send us a message and our team will be happy to hear from you.
+        </p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-info-panel">
+            <span class="contact-section-label">CONTACT INFORMATION</span>
+            <h2>We'd love to hear from you.</h2>
+            <p>
+                Fill out the form and share your question or feedback
+                with the ShopKart team.
+            </p>
+
+            <div class="contact-info-item">
+                <div class="contact-info-icon">✉</div>
+                <div>
+                    <h4>Email Us</h4>
+                    <a href="mailto:support@shopkart.com">
+                        support@shopkart.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="contact-info-icon">⌖</div>
+                <div>
+                    <h4>Location</h4>
+                    <p>Lucknow, Uttar Pradesh, India</p>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="contact-info-icon">◷</div>
+                <div>
+                    <h4>Customer Support</h4>
+                    <p>Send us a message anytime through this form.</p>
+                </div>
+            </div>
+
+            <div class="contact-info-note">
+                <span>✦</span>
+                <p>Thank you for choosing ShopKart!</p>
+            </div>
+        </div>
+
+        <div class="contact-form-panel">
+            <span class="contact-section-label">SEND A MESSAGE</span>
+            <h2>How can we help?</h2>
+            <p class="contact-form-description">
+                Enter your details below. All fields are required.
+            </p>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="contact-alert contact-alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" action="{% url 'contact' %}"
+                  class="contact-form">
+                {% csrf_token %}
+
+                <div class="contact-form-group">
+                    <label for="contact-name">Your Name</label>
+                    <input
+                        type="text"
+                        id="contact-name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="contact-form-group">
+                    <label for="contact-email">Email Address</label>
+                    <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        placeholder="you@example.com"
+                        maxlength="254"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="contact-form-group">
+                    <label for="contact-subject">Subject</label>
+                    <input
+                        type="text"
+                        id="contact-subject"
+                        name="subject"
+                        placeholder="What is your message about?"
+                        maxlength="200"
+                        required
+                    >
+                </div>
+
+                <div class="contact-form-group">
+                    <label for="contact-message">Your Message</label>
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="contact-submit-btn">
+                    Send Message <span>→</span>
+                </button>
+
+                <p class="contact-privacy-note">
+                    Your message will be saved securely in our website database.
+                </p>
+            </form>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

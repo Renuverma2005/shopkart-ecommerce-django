@@ -1,0 +1,221 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ category.name }} | ShopKart
+{% endblock %}
+
+
+{% block content %}
+
+<section class="category-products-page">
+
+    <div class="category-products-container">
+
+
+        <!-- =====================================================
+             CATEGORY HEADER
+        ====================================================== -->
+
+        <div class="category-products-header">
+
+            <div class="category-header-content">
+
+                <span class="category-label">
+                    SHOPKART COLLECTION
+                </span>
+
+                <h1>
+                    {{ category.name }}
+                </h1>
+
+                <p>
+                    Explore the latest products available in
+                    {{ category.name }}.
+                </p>
+
+            </div>
+
+
+            <!-- Category Image -->
+
+            {% if category.image %}
+
+            <div class="selected-category-image">
+
+                <img
+                    src="{{ category.image.url }}"
+                    alt="{{ category.name }}"
+                >
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCTS COUNT
+        ====================================================== -->
+
+        <div class="products-topbar">
+
+            <div>
+                <span class="products-count">
+                    {{ products|length }}
+                </span>
+
+                Products Available
+            </div>
+
+            <a href="{% url 'categories' %}" class="back-category">
+                ← All Categories
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             PRODUCTS GRID
+        ====================================================== -->
+
+        <div class="category-products-grid">
+
+            {% for product in products %}
+
+            <article class="category-product-card">
+
+
+                <!-- Product Image -->
+
+                <div class="product-image-wrapper">
+
+                    <a href="{% url 'product_detail' product.id %}">
+
+                        {% if product.image %}
+
+                            <img
+                                src="{{ product.image.url }}"
+                                alt="{{ product.name }}"
+                                class="category-product-image"
+                            >
+
+                        {% else %}
+
+                            <div class="product-no-image">
+                                No Image
+                            </div>
+
+                        {% endif %}
+
+                    </a>
+
+
+                    <!-- Availability -->
+
+                    {% if product.available %}
+
+                        <span class="available-badge">
+                            Available
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Product Information -->
+
+                <div class="category-product-info">
+
+                    <span class="product-category-name">
+                        {{ category.name }}
+                    </span>
+
+                    <h2>
+                        {{ product.name }}
+                    </h2>
+
+
+                    {% if product.short_description %}
+
+                    <p class="product-short-description">
+                        {{ product.short_description }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <div class="product-price-row">
+
+                        <div>
+
+                            <span class="current-price">
+                                ₹{{ product.price }}
+                            </span>
+
+
+                            {% if product.old_price %}
+
+                            <span class="old-price">
+                                ₹{{ product.old_price }}
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'product_detail' product.id %}"
+                            class="view-product"
+                        >
+                            View
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <!-- =================================================
+                 NO PRODUCTS
+            ================================================== -->
+
+            <div class="empty-category">
+
+                <div class="empty-icon">
+                    🛍
+                </div>
+
+                <h2>
+                    No Products Found
+                </h2>
+
+                <p>
+                    There are currently no products available
+                    in <strong>{{ category.name }}</strong>.
+                </p>
+
+                <a href="{% url 'categories' %}">
+                    Explore Other Categories
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if query %}
+Search: {{ query }}
+{% else %}
+Search
+{% endif %}
+| ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="search-results-page">
+
+    <div class="container">
+
+        <div class="search-results-header">
+
+            <span>SHOPKART SEARCH</span>
+
+            <h1>
+                {% if query %}
+                    Search results for "{{ query }}"
+                {% else %}
+                    Search Products
+                {% endif %}
+            </h1>
+
+            <p>
+                {% if query %}
+                    {{ products|length }} products found
+                {% else %}
+                    Discover products from ShopKart
+                {% endif %}
+            </p>
+
+        </div>
+
+
+        <div class="search-results-grid">
+
+            {% for product in products %}
+
+                <article class="search-result-card">
+
+                    <a href="{% url 'product_detail' product.id %}">
+
+                        <div class="search-result-image">
+
+                            {% if product.image %}
+
+                                <img
+                                    src="{{ product.image.url }}"
+                                    alt="{{ product.name }}"
+                                >
+
+                            {% else %}
+
+                                <div class="search-result-no-image">
+                                    No Image
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </a>
+
+
+                    <div class="search-result-info">
+
+                        <span class="result-category">
+                            {{ product.category.name }}
+                        </span>
+
+                        <h2>
+                            {{ product.name }}
+                        </h2>
+
+                        {% if product.short_description %}
+                            <p>
+                                {{ product.short_description }}
+                            </p>
+                        {% endif %}
+
+
+                        <div class="result-bottom">
+
+                            <strong>
+                                ₹{{ product.price }}
+                            </strong>
+
+                            <a
+                                href="{% url 'product_detail' product.id %}"
+                            >
+                                View →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            {% empty %}
+
+                <div class="search-empty">
+
+                    <div>🔍</div>
+
+                    <h2>
+                        No Products Found
+                    </h2>
+
+                    <p>
+                        We couldn't find anything matching
+                        "<strong>{{ query }}</strong>".
+                    </p>
+
+                    <a href="{% url 'categories' %}">
+                        Explore Categories
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

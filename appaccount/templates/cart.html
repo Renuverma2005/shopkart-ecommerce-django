@@ -1,0 +1,223 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Cart | ShopKart{% endblock %}
+
+{% block content %}
+
+
+
+<section class="shop-cart">
+
+    <div class="cart-container">
+
+        <!-- HEADER -->
+        <div class="cart-header">
+            <div>
+                <span class="cart-label">SHOPKART / CART</span>
+                <h1>Shopping Cart</h1>
+                <p>Everything you love, ready to go.</p>
+            </div>
+
+            <div class="cart-badge">
+                🛒 <span>{{ cart_items|length }}</span> Items
+            </div>
+        </div>
+
+
+        {% if cart_items %}
+
+        <div class="cart-layout">
+
+            <!-- LEFT SIDE -->
+            <div class="cart-products">
+
+                {% for item in cart_items %}
+
+                <div class="cart-product">
+
+                    <!-- IMAGE -->
+                    <div class="product-image-box">
+
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}"
+                                 alt="{{ item.product.name }}">
+                        {% else %}
+                            <div class="no-image">🛍️</div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- PRODUCT INFO -->
+                    <div class="product-info">
+
+                        <span class="product-tag">
+                            SHOPKART PRODUCT
+                        </span>
+
+                        <h3>{{ item.product.name }}</h3>
+
+                        <div class="product-price">
+                            ₹{{ item.product.price }}
+                        </div>
+
+                        <a href="{% url 'remove_from_cart' item.product.id %}"
+                           class="remove-product">
+                            <span>×</span> Remove
+                        </a>
+
+                    </div>
+
+
+                    <!-- QUANTITY -->
+                    <div class="quantity-area">
+
+                        <small>QUANTITY</small>
+
+                        <div class="quantity-control">
+
+                            <a href="{% url 'decrease_cart' item.product.id %}">
+                                −
+                            </a>
+
+                            <span>{{ item.quantity }}</span>
+
+                            <a href="{% url 'increase_cart' item.product.id %}">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+                    <div class="item-total">
+
+                        <small>TOTAL</small>
+
+                        <strong>
+                            ₹{{ item.total_price }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+                <!-- CONTINUE -->
+                <a href="/" class="continue-shopping">
+                    <span>←</span> Continue Shopping
+                </a>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <aside class="order-summary">
+
+                <div class="summary-top">
+                    <span>YOUR ORDER</span>
+                    <span>SHOPKART</span>
+                </div>
+
+                <h2>Order Summary</h2>
+
+
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <strong>₹{{ total }}</strong>
+                </div>
+
+
+                <div class="summary-line">
+                    <span>Delivery</span>
+
+                    {% if total >= 999 %}
+                        <strong class="free">FREE</strong>
+                    {% else %}
+                        <strong>₹49</strong>
+                    {% endif %}
+
+                </div>
+
+
+                {% if total < 999 %}
+                <div class="free-message">
+                    🎁 Add ₹{{ total|add:"-999"|cut:"-" }} more for FREE delivery
+                </div>
+                {% endif %}
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="grand-total">
+                    <span>Total</span>
+
+                    <strong>
+                        {% if total >= 999 %}
+                            ₹{{ total }}
+                        {% else %}
+                            ₹{{ total|add:"49" }}
+                        {% endif %}
+                    </strong>
+                </div>
+
+
+                <button class="checkout-button">
+                    Proceed to Checkout
+                    <span>→</span>
+                </button>
+
+
+                <div class="secure-checkout">
+                    🔒 Secure & Safe Checkout
+                </div>
+
+
+                <div class="payment-methods">
+                    <span>VISA</span>
+                    <span>UPI</span>
+                    <span>COD</span>
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        {% else %}
+
+        <!-- EMPTY CART -->
+
+        <div class="empty-cart">
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h2>Your cart is waiting</h2>
+
+            <p>
+                Discover something amazing and add it to your cart.
+            </p>
+
+            <a href="/" class="shop-now">
+                Start Shopping →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
+

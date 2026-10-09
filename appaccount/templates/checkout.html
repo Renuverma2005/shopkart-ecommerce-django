@@ -1,0 +1,598 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Checkout | ShopKart
+{% endblock %}
+
+{% block content %}
+
+<section class="checkout-page">
+
+
+<div class="checkout-container">
+
+    <!-- =========================
+         CHECKOUT HEADER
+    ========================== -->
+    <div class="checkout-header">
+        <span class="checkout-label">
+            <i class="bi bi-shield-check"></i>
+            Secure Checkout
+        </span>
+
+        <h1>Complete Your Order</h1>
+
+        <p>
+            Review your products and enter your delivery details.
+        </p>
+    </div>
+
+
+    <!-- =========================
+         CHECKOUT GRID
+    ========================== -->
+    <div class="checkout-grid">
+
+        <!-- =========================
+             LEFT SIDE
+        ========================== -->
+        <div class="checkout-left">
+
+            <!-- DELIVERY DETAILS -->
+            <div class="checkout-card">
+
+                <div class="checkout-card-title">
+                    <i class="bi bi-geo-alt"></i>
+                    <div>
+                        <h2>Delivery Details</h2>
+                        <p>Where should we deliver your order?</p>
+                    </div>
+                </div>
+
+
+                <form method="POST" action="{% url 'checkout' %}" class="checkout-form">
+
+                    {% csrf_token %}
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter email address"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="pincode">
+                                Pincode
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                name="pincode"
+                                placeholder="Enter pincode"
+                                maxlength="6"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="address">
+                            Full Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="4"
+                            placeholder="House No, Street, Area..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Enter city"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="state">
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                name="state"
+                                placeholder="Enter state"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         PAYMENT METHOD
+                    ========================== -->
+
+                    <div class="checkout-card-title payment-title">
+
+                        <i class="bi bi-credit-card"></i>
+
+                        <div>
+                            <h2>Payment Method</h2>
+                            <p>Choose your preferred payment option.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-methods">
+
+                        <!-- CASH ON DELIVERY -->
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                                checked
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+
+                            <div class="payment-content">
+
+                                <strong>
+                                    Cash on Delivery
+                                </strong>
+
+                                <span>
+                                    Pay when your order arrives
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle payment-check"></i>
+
+                        </label>
+
+
+                        <!-- GOOGLE PAY -->
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="google_pay"
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-google"></i>
+                            </div>
+
+                            <div class="payment-content">
+
+                                <strong>
+                                    Google Pay
+                                </strong>
+
+                                <span>
+                                    Pay securely using Google Pay
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle payment-check"></i>
+
+                        </label>
+
+
+                        <!-- PHONEPE -->
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="phonepe"
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+
+                            <div class="payment-content">
+
+                                <strong>
+                                    PhonePe
+                                </strong>
+
+                                <span>
+                                    Pay securely using PhonePe
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle payment-check"></i>
+
+                        </label>
+
+
+                        <!-- CREDIT CARD -->
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="credit_card"
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-credit-card-2-front"></i>
+                            </div>
+
+                            <div class="payment-content">
+
+                                <strong>
+                                    Credit Card
+                                </strong>
+
+                                <span>
+                                    Visa, Mastercard and more
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle payment-check"></i>
+
+                        </label>
+
+
+                        <!-- DEBIT CARD -->
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="debit_card"
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-credit-card"></i>
+                            </div>
+
+                            <div class="payment-content">
+
+                                <strong>
+                                    Debit Card
+                                </strong>
+
+                                <span>
+                                    Secure debit card payment
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle payment-check"></i>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- =========================
+                         PLACE ORDER
+                    ========================== -->
+
+                    <button
+                        type="submit"
+                        class="place-order-btn"
+                    >
+
+                        <i class="bi bi-lock-fill"></i>
+
+                        <span>
+                            Place Order
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </button>
+
+
+                    <div class="secure-checkout">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        <span>
+                            Your information is secure and protected.
+                        </span>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             RIGHT SIDE - ORDER SUMMARY
+        ========================== -->
+
+        <div class="checkout-right">
+
+            <div class="checkout-card order-summary-card">
+
+                <div class="checkout-card-title">
+
+                    <i class="bi bi-bag-check"></i>
+
+                    <div>
+                        <h2>Order Summary</h2>
+
+                        <p>
+                            Your selected products
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- ORDER ITEMS -->
+
+                <div class="checkout-items">
+
+                    {% for item in cart_items %}
+
+                    <div class="checkout-product">
+
+                        <!-- PRODUCT IMAGE -->
+
+                        <div class="checkout-product-image">
+
+                            {% if item.product.image %}
+
+                                <img
+                                    src="{{ item.product.image.url }}"
+                                    alt="{{ item.product.name }}"
+                                >
+
+                            {% else %}
+
+                                <div class="no-product-image">
+
+                                    <i class="bi bi-image"></i>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- PRODUCT INFORMATION -->
+
+                        <div class="checkout-product-info">
+
+                            <h3>
+                                {{ item.product.name }}
+                            </h3>
+
+
+                            {% if item.item_type == 'shoe' %}
+
+                                <span class="checkout-category">
+                                    Shoes
+                                </span>
+
+                            {% else %}
+
+                                {% if item.product.category %}
+
+                                    <span class="checkout-category">
+                                        {{ item.product.category.name }}
+                                    </span>
+
+                                {% endif %}
+
+                            {% endif %}
+
+
+                            {% if item.product.color %}
+
+                                <p>
+                                    Color:
+                                    {{ item.product.color }}
+                                </p>
+
+                            {% endif %}
+
+
+                            {% if item.product.size %}
+
+                                <p>
+                                    Size:
+                                    {{ item.product.size }}
+                                </p>
+
+                            {% endif %}
+
+
+                            <div class="product-price">
+                                ₹{{ item.price }}
+                            </div>
+
+
+                            <div class="product-quantity">
+                                Quantity:
+                                {{ item.quantity }}
+                            </div>
+
+
+                            <div class="product-subtotal">
+                                Subtotal:
+                                ₹{{ item.subtotal }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% empty %}
+
+                    <div class="empty-checkout">
+
+                        <i class="bi bi-bag-x"></i>
+
+                        <h3>
+                            Your cart is empty
+                        </h3>
+
+                        <p>
+                            Please add some products before checkout.
+                        </p>
+
+                        <a href="{% url 'home' %}">
+                            Continue Shopping
+                        </a>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- =========================
+                     PRICE DETAILS
+                ========================== -->
+
+                {% if cart_items %}
+
+                <div class="price-details">
+
+                    <div>
+
+                        <span>
+                            Items
+                        </span>
+
+                        <strong>
+                            {{ cart_items|length }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Delivery
+                        </span>
+
+                        <strong class="free">
+                            FREE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="price-total">
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <strong>
+                            ₹{{ total }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+{% endblock %}
