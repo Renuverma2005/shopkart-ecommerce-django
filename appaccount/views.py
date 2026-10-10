@@ -1,5 +1,6 @@
 
 from decimal import Decimal
+from django.conf import settings
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
@@ -19,7 +20,6 @@ from .models import ContactMessage
 # =========================================================
 
 def home(request):
-
     categories = Category.objects.all()
 
     products = Product.objects.filter(
@@ -35,6 +35,7 @@ def home(request):
         {
             'categories': categories,
             'products': products,
+            'USE_STATIC_MEDIA': settings.USE_STATIC_MEDIA,
         }
     )
 

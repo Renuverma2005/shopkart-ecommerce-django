@@ -1,25 +1,19 @@
 
 {% extends 'base.html' %}
-
 {% block title %}ShopKart | Home{% endblock %}
 
 {% block content %}
 
 <!-- ================= HERO SECTION ================= -->
-
-<section class="hero-section">
-
-    <div class="hero-glow glow-one"></div>
-    <div class="hero-glow glow-two"></div>
+<section class="sk-home-hero">
+    <div class="sk-home-glow sk-home-glow-one"></div>
+    <div class="sk-home-glow sk-home-glow-two"></div>
 
     <div class="container">
-
         <div class="row align-items-center min-vh-75">
 
-            <!-- Hero Content -->
             <div class="col-lg-6">
-
-                <span class="hero-small-title">
+                <span class="sk-home-eyebrow">
                     ✦ NEW SEASON COLLECTION
                 </span>
 
@@ -33,37 +27,26 @@
                     everything you need — all in one place.
                 </p>
 
-             
-
-                <!-- Mini Stats -->
-                <div class="hero-stats">
-
+                <div class="sk-home-stats">
                     <div>
                         <strong>10K+</strong>
                         <small>Products</small>
                     </div>
-
                     <div>
                         <strong>5K+</strong>
                         <small>Customers</small>
                     </div>
-
                     <div>
                         <strong>4.9</strong>
                         <small>Rating ⭐</small>
                     </div>
-
                 </div>
-
             </div>
 
-
-            <!-- Hero Visual -->
             <div class="col-lg-6">
+                <div class="sk-home-visual">
 
-                <div class="hero-visual">
-
-                    <div class="floating-card card-one">
+                    <div class="sk-home-float sk-home-float-one">
                         <i class="bi bi-truck"></i>
                         <div>
                             <strong>Free Delivery</strong>
@@ -71,16 +54,14 @@
                         </div>
                     </div>
 
-                    <div class="hero-circle">
-
-                        <div class="hero-circle-inner">
+                    <div class="sk-home-circle">
+                        <div class="sk-home-circle-inner">
                             <i class="bi bi-bag-heart"></i>
                             <span>SHOP</span>
                         </div>
-
                     </div>
 
-                    <div class="floating-card card-two">
+                    <div class="sk-home-float sk-home-float-two">
                         <i class="bi bi-percent"></i>
                         <div>
                             <strong>Special Offers</strong>
@@ -89,177 +70,151 @@
                     </div>
 
                 </div>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
 <!-- ================= CATEGORIES ================= -->
-
-<section class="categories-section" id="categories">
-
+<section class="sk-home-categories" id="sk-home-category-list">
     <div class="container">
 
-        <div class="section-heading">
-
+        <div class="sk-home-heading">
             <span>EXPLORE COLLECTION</span>
-
             <h2>Shop by Category</h2>
-
-            <p>
-                Find exactly what you're looking for
-            </p>
-
+            <p>Find exactly what you're looking for</p>
         </div>
 
-
         <div class="row g-4">
-
             {% for category in categories %}
-
             <div class="col-xl-3 col-lg-4 col-md-6">
 
-                <a href="#" class="category-card">
-
-                    <div class="category-image">
+                <a href="#" class="sk-home-category-card">
+                    <div class="sk-home-category-image">
 
                         {% if category.image %}
-                            <img src="{{ category.image.url }}"
-                                 alt="{{ category.name }}">
+                            {% if USE_STATIC_MEDIA %}
+                                <img
+                                    src="/static/{{ category.image.name }}"
+                                    alt="{{ category.name }}"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <img
+                                    src="{{ category.image.url }}"
+                                    alt="{{ category.name }}"
+                                    loading="lazy"
+                                >
+                            {% endif %}
                         {% else %}
-                            <div class="category-placeholder">
+                            <div class="sk-home-category-placeholder">
                                 <i class="bi bi-grid"></i>
                             </div>
                         {% endif %}
 
                     </div>
 
-                    <div class="category-content">
-
+                    <div class="sk-home-category-content">
                         <h4>{{ category.name }}</h4>
-
                         <span>
                             Explore
                             <i class="bi bi-arrow-up-right"></i>
                         </span>
-
                     </div>
-
                 </a>
 
             </div>
-
             {% empty %}
-
             <div class="col-12">
-                <div class="empty-box">
+                <div class="sk-home-empty">
                     <i class="bi bi-box-seam"></i>
                     <h4>No Categories Yet</h4>
                     <p>Add categories from Django Admin.</p>
                 </div>
             </div>
-
             {% endfor %}
-
         </div>
 
     </div>
-
 </section>
 
 
 <!-- ================= PRODUCTS ================= -->
-
-<section class="products-section" id="products">
-
+<section class="sk-home-products" id="sk-home-product-list">
     <div class="container">
 
-        <div class="section-heading product-heading">
-
+        <div class="sk-home-product-heading">
             <div>
                 <span>OUR COLLECTION</span>
                 <h2>Trending Products</h2>
             </div>
 
-
-
-           
-            <a href="#" class="view-all">
+            <a href="#sk-home-product-list" class="sk-home-view-all">
                 View All
                 <i class="bi bi-arrow-right"></i>
             </a>
-
         </div>
 
-
         <div class="row g-4">
-
             {% for product in products %}
-
             <div class="col-xl-3 col-lg-4 col-md-6">
 
-                <div class="product-card">
+                <div class="sk-home-product-card">
 
-                    <!-- Image -->
-                    <div class="product-image">
+                    <div class="sk-home-product-image">
 
                         {% if product.image %}
-                            <img src="{{ product.image.url }}"
-                                 alt="{{ product.name }}">
+                            {% if USE_STATIC_MEDIA %}
+                                <img
+                                    src="/static/{{ product.image.name }}"
+                                    alt="{{ product.name }}"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <img
+                                    src="{{ product.image.url }}"
+                                    alt="{{ product.name }}"
+                                    loading="lazy"
+                                >
+                            {% endif %}
                         {% else %}
-                            <div class="product-placeholder">
+                            <div class="sk-home-product-placeholder">
                                 <i class="bi bi-image"></i>
                             </div>
                         {% endif %}
 
                         {% if product.old_price %}
-
-                        <span class="discount-badge">
-                            SALE
-                        </span>
-
+                            <span class="sk-home-sale-badge">SALE</span>
                         {% endif %}
 
-
-                        <!-- Wishlist -->
-                        <a href=""
-                           class="wishlist-btn">
+                        <a href="#" class="sk-home-wishlist-btn"
+                           aria-label="Wishlist">
                             <i class="bi bi-heart"></i>
                         </a>
 
-                        <!-- Quick View -->
                         <a href="{% url 'product_detail' product.id %}"
-                           class="quick-view">
+                           class="sk-home-quick-view">
                             <i class="bi bi-eye"></i>
                             Quick View
                         </a>
 
                     </div>
 
+                    <div class="sk-home-product-info">
 
-                    <!-- Product Info -->
-
-                    <div class="product-info">
-
-                        <span class="product-category">
+                        <span class="sk-home-product-category">
                             {{ product.category.name }}
                         </span>
 
-                        <h3>
-                            {{ product.name }}
-                        </h3>
+                        <h3>{{ product.name }}</h3>
 
                         <p>
                             {{ product.description|truncatechars:70 }}
                         </p>
 
-
-                        <div class="rating">
+                        <div class="sk-home-rating">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
@@ -268,163 +223,96 @@
                             <span>(4.8)</span>
                         </div>
 
+                        <div class="sk-home-product-bottom">
 
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                <strong>
-                                    ₹{{ product.price }}
-                                </strong>
+                            <div class="sk-home-price">
+                                <strong>₹{{ product.price }}</strong>
 
                                 {% if product.old_price %}
-                                <del>
-                                    ₹{{ product.old_price }}
-                                </del>
+                                    <del>₹{{ product.old_price }}</del>
                                 {% endif %}
-
                             </div>
 
-
                             <a href="{% url 'add_to_cart' product.id %}"
-                               class="add-cart-btn">
-
+                               class="sk-home-add-cart"
+                               aria-label="Add to cart">
                                 <i class="bi bi-cart-plus"></i>
-
                             </a>
 
                         </div>
-
                     </div>
 
                 </div>
-
             </div>
 
             {% empty %}
-
             <div class="col-12">
-
-                <div class="empty-box">
-
+                <div class="sk-home-empty">
                     <i class="bi bi-bag-x"></i>
-
                     <h4>No Products Available</h4>
-
-                    <p>
-                        Add products from Django Admin.
-                    </p>
-
+                    <p>Add products from Django Admin.</p>
                 </div>
-
             </div>
-
             {% endfor %}
-
         </div>
 
     </div>
-
 </section>
 
 
-<!-- ================= WHY SHOP WITH US ================= -->
-
-<section class="benefits-section">
-
+<!-- ================= BENEFITS ================= -->
+<section class="sk-home-benefits">
     <div class="container">
 
-        <div class="section-heading">
-
+        <div class="sk-home-heading">
             <span>WHY SHOPKART?</span>
-
             <h2>Shopping Made Simple</h2>
-
         </div>
-
 
         <div class="row g-4">
 
             <div class="col-lg-3 col-md-6">
-
-                <div class="benefit-card">
-
-                    <div class="benefit-icon">
+                <div class="sk-home-benefit-card">
+                    <div class="sk-home-benefit-icon">
                         <i class="bi bi-truck"></i>
                     </div>
-
                     <h4>Fast Delivery</h4>
-
-                    <p>
-                        Quick and reliable delivery right to your door.
-                    </p>
-
+                    <p>Quick and reliable delivery right to your door.</p>
                 </div>
-
             </div>
 
-
             <div class="col-lg-3 col-md-6">
-
-                <div class="benefit-card">
-
-                    <div class="benefit-icon">
+                <div class="sk-home-benefit-card">
+                    <div class="sk-home-benefit-icon">
                         <i class="bi bi-shield-check"></i>
                     </div>
-
                     <h4>Secure Payment</h4>
-
-                    <p>
-                        Your payments and information stay protected.
-                    </p>
-
+                    <p>Your payments and information stay protected.</p>
                 </div>
-
             </div>
 
-
             <div class="col-lg-3 col-md-6">
-
-                <div class="benefit-card">
-
-                    <div class="benefit-icon">
+                <div class="sk-home-benefit-card">
+                    <div class="sk-home-benefit-icon">
                         <i class="bi bi-arrow-repeat"></i>
                     </div>
-
                     <h4>Easy Returns</h4>
-
-                    <p>
-                        Simple and hassle-free return experience.
-                    </p>
-
+                    <p>Simple and hassle-free return experience.</p>
                 </div>
-
             </div>
 
-
             <div class="col-lg-3 col-md-6">
-
-                <div class="benefit-card">
-
-                    <div class="benefit-icon">
+                <div class="sk-home-benefit-card">
+                    <div class="sk-home-benefit-icon">
                         <i class="bi bi-headset"></i>
                     </div>
-
                     <h4>24/7 Support</h4>
-
-                    <p>
-                        We're always here whenever you need help.
-                    </p>
-
+                    <p>We're always here whenever you need help.</p>
                 </div>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 {% endblock %}
-

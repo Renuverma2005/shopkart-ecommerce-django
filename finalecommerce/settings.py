@@ -38,7 +38,12 @@ SECRET_KEY = os.environ.get(
 "django-insecure-local-shopkart-development-key-change-this"
 )
 
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+DEBUG = os.environ.get(
+    "DEBUG",
+    "True" if os.environ.get("RENDER") is None else "False"
+).lower() == "true"
+
 
 # =====================================================
 
@@ -227,6 +232,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+USE_STATIC_MEDIA = os.environ.get("RENDER") is not None
+
 
 STORAGES = {
     "default": {
