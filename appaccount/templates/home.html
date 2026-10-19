@@ -94,25 +94,18 @@
                 <a href="#" class="sk-home-category-card">
                     <div class="sk-home-category-image">
 
-                        {% if category.image %}
-                            {% if USE_STATIC_MEDIA %}
-                                <img
-                                    src="/static/{{ category.image.name }}"
-                                    alt="{{ category.name }}"
-                                    loading="lazy"
-                                >
-                            {% else %}
-                                <img
-                                    src="{{ category.image.url }}"
-                                    alt="{{ category.name }}"
-                                    loading="lazy"
-                                >
-                            {% endif %}
-                        {% else %}
-                            <div class="sk-home-category-placeholder">
-                                <i class="bi bi-grid"></i>
-                            </div>
-                        {% endif %}
+                        
+{% if category.image %}
+    <img
+        src="/static/{{ category.image.name }}"
+        alt="{{ category.name }}"
+        loading="lazy"
+    >
+{% else %}
+    <div class="sk-home-category-placeholder">
+        <i class="bi bi-grid"></i>
+    </div>
+{% endif %}
 
                     </div>
 
@@ -165,20 +158,19 @@
 
                     <div class="sk-home-product-image">
 
-                        {% if product.image %}
-                            {% if USE_STATIC_MEDIA %}
-                                <img
-                                    src="/static/{{ product.image.name }}"
-                                    alt="{{ product.name }}"
-                                    loading="lazy"
-                                >
-                            {% else %}
-                                <img
-                                    src="{{ product.image.url }}"
-                                    alt="{{ product.name }}"
-                                    loading="lazy"
-                                >
-                            {% endif %}
+                    
+{% if product.image %}
+    <img
+        src="/static/{{ product.image.name }}"
+        alt="{{ product.name }}"
+        loading="lazy"
+    >
+{% else %}
+    <div class="sk-home-product-placeholder">
+        <i class="bi bi-image"></i>
+    </div>
+{% endif %}
+
                         {% else %}
                             <div class="sk-home-product-placeholder">
                                 <i class="bi bi-image"></i>
