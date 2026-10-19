@@ -221,18 +221,72 @@ USE_TZ = True
 # STATIC FILES
 
 # =====================================================
-
-# Static files settings
 STATIC_URL = "/static/"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "media",
 ]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Media files settings
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-
 USE_STATIC_MEDIA = os.environ.get("RENDER") is not None
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+# MEDIA FILES
+
+# =====================================================
+
+
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+# =====================================================
+
+# EMAIL SETTINGS
+
+# =====================================================
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# =====================================================
+
+# LOGGING
+
+# =====================================================
+
+LOGGING = {
+"version": 1,
+"disable_existing_loggers": False,
+"handlers": {
+"console": {
+"class": "logging.StreamHandler",
+},
+},
+"loggers": {
+"django.request": {
+"handlers": ["console"],
+"level": "ERROR",
+"propagate": False,
+},
+},
+}
+
+# =====================================================
+
+# DEFAULT PRIMARY KEY
+
+# =====================================================
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
